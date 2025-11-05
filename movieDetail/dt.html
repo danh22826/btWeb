@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframe - Trang Chi Tiết (Tất cả Căn Giữa)</title>
+
+    <style>
+      /* =================================== */
+      /* CSS CHUNG */
+      /* =================================== */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        /* Thêm padding trên và dưới để dễ nhìn */
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      /* Định nghĩa một chiều rộng tối đa chung */
+      .centered-block {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 15px; /* Giữ padding cho container */
+      }
+
+      .container {
+        /* container giờ chỉ dùng cho grid */
+      }
+
+      /* Khối wireframe chung */
+      .wireframe-block {
+        border: 2px dashed #999;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f0f0f0;
+        box-sizing: border-box;
+        min-height: 80px;
+      }
+
+      /* Header */
+      header.wireframe-block {
+        min-height: 80px;
+      }
+
+      /* Footer */
+      footer.wireframe-block {
+        margin-top: 0; /* Bỏ margin top vì .container đã có */
+        margin-bottom: 0;
+        background-color: #ddd;
+        min-height: 100px;
+      }
+
+      /* =================================== */
+      /* CSS TRANG CHI TIẾT (Giữ nguyên) */
+      /* =================================== */
+
+      .detail-grid-wireframe {
+        display: grid;
+        grid-template-columns: 450px 1fr;
+        gap: 60px;
+      }
+
+      .poster-main-wireframe {
+        height: 675px;
+        background-color: #c0c0c0;
+        border-radius: 15px;
+        margin-bottom: 20px;
+      }
+
+      .button-placeholder-wireframe {
+        height: 50px;
+        background-color: #e0e0e0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+
+      .info-column-wireframe {
+        /* Dùng style của .wireframe-block */
+      }
+
+      .line-placeholder {
+        height: 18px;
+        background-color: #d0d0d0;
+        border-radius: 4px;
+        margin-bottom: 15px;
+      }
+      .line-placeholder.title {
+        width: 80%;
+        height: 45px;
+        margin-bottom: 20px;
+      }
+      .line-placeholder.subtitle {
+        width: 60%;
+        height: 18px;
+        margin-bottom: 30px;
+      }
+      .line-placeholder.paragraph {
+        height: 200px;
+        margin-bottom: 30px;
+      }
+      .divider-placeholder {
+        height: 2px;
+        background-color: #ccc;
+        margin: 30px 0;
+      }
+      .line-placeholder.info-item {
+        width: 70%;
+      }
+
+      /* Responsive */
+      @media (max-width: 1400px) {
+        /* Đảm bảo padding hoạt động đúng */
+        .centered-block {
+          padding: 0 15px;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .detail-grid-wireframe {
+          grid-template-columns: 380px 1fr;
+          gap: 40px;
+        }
+        .poster-main-wireframe {
+          height: 570px;
+        }
+      }
+      @media (max-width: 991px) {
+        .detail-grid-wireframe {
+          grid-template-columns: 1fr;
+        }
+        .poster-column-wireframe {
+          max-width: 450px;
+          margin: 0 auto;
+        }
+        .poster-main-wireframe {
+          height: 600px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wireframe-block centered-block"></header>
+
+    <div class="centered-block">
+      <div class="container">
+        <div class="detail-grid-wireframe">
+          <div class="poster-column-wireframe">
+            <div class="poster-main-wireframe"></div>
+            <div class="button-placeholder-wireframe"></div>
+          </div>
+
+          <div class="wireframe-block info-column-wireframe">
+            <div class="line-placeholder title"></div>
+            <div class="line-placeholder subtitle"></div>
+            <div class="line-placeholder paragraph"></div>
+            <div class="divider-placeholder"></div>
+            <div class="line-placeholder info-item"></div>
+            <div class="line-placeholder info-item"></div>
+            <div class="line-placeholder info-item"></div>
+            <div class="line-placeholder info-item"></div>
+            <div class="line-placeholder info-item"></div>
+            <div class="line-placeholder info-item"></div>
+            <div class="line-placeholder info-item"></div>
+            <div class="line-placeholder info-item"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="wireframe-block centered-block"></footer>
+  </body>
+</html>

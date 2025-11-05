@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframe - Trang Đăng Nhập (Căn Giữa)</title>
+    <style>
+      /* =================================== */
+      /* CSS CHUNG */
+      /* =================================== */
+      html,
+      body {
+        height: 100%; /* Cần thiết để căn giữa */
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+
+        /* Căn giữa form theo chiều dọc và ngang */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* =================================== */
+      /* CSS TRANG ĐĂNG NHẬP */
+      /* =================================== */
+
+      /* Khối wireframe chung cho form */
+      .wireframe-form-block {
+        border: 2px dashed #999;
+        padding: 40px;
+        background-color: #f0f0f0;
+        box-sizing: border-box;
+        width: 400px; /* Chiều rộng cố định */
+        border-radius: 20px;
+      }
+
+      /* Placeholder cho Tiêu đề (form-heading) */
+      .heading-placeholder {
+        height: 30px;
+        background-color: #d0d0d0;
+        border-radius: 4px;
+        margin-bottom: 25px;
+      }
+
+      /* Placeholder cho Input (input-group) */
+      .input-placeholder {
+        height: 45px;
+        background-color: #e0e0e0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-bottom: 25px;
+      }
+
+      /* Placeholder cho link "Quên mật khẩu" */
+      .forgot-link-placeholder {
+        height: 15px;
+        width: 40%; /* Nhỏ hơn */
+        margin-left: auto; /* Căn phải */
+        margin-bottom: 15px;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+      }
+
+      /* Placeholder cho Nút (submit) */
+      .button-placeholder {
+        height: 45px;
+        background-color: #999; /* Nút màu xám */
+        border-radius: 40px;
+        margin-bottom: 20px;
+      }
+
+      /* Placeholder cho Link (signup-link) */
+      .signup-link-placeholder {
+        height: 15px;
+        width: 70%;
+        margin: 0 auto; /* Căn giữa */
+        background-color: #e0e0e0;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. FORM ĐĂNG NHẬP (Đã căn giữa) -->
+    <div class="wireframe-form-block">
+      <!-- Tiêu đề -->
+      <div class="heading-placeholder"></div>
+
+      <!-- 2 ô input -->
+      <div class="input-placeholder"></div>
+      <div class="input-placeholder"></div>
+
+      <!-- Link Quên mật khẩu -->
+      <div class="forgot-link-placeholder"></div>
+
+      <!-- Nút Submit -->
+      <div class="button-placeholder"></div>
+
+      <!-- Link Đăng ký -->
+      <div class="signup-link-placeholder"></div>
+    </div>
+  </body>
+</html>

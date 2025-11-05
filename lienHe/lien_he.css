@@ -1,0 +1,432 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* --- RESET & CƠ BẢN --- */
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background: #1a1a1a;
+  color: white;
+  overflow-x: hidden;
+  padding-top: 120px;
+}
+
+/* --- HEADER --- */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header * {
+  text-decoration: none;
+  color: white;
+}
+
+/* Thanh xanh trên cùng */
+
+.header-right {
+  background: #0073cf;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  flex-wrap: wrap;
+}
+
+.header-right a:hover {
+  color: rgb(224, 221, 43);
+}
+
+/* Hàng chứa logo, tìm kiếm, menu */
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 10px 20px;
+  flex-wrap: nowrap;
+  font-size: 20px;
+}
+
+.header-left a img {
+  height: 80px;
+  width: auto;
+}
+
+.header-left span.cinema-name {
+  font-weight: bold;
+  font-size: 1.8em;
+  line-height: 1;
+}
+
+/* Ô tìm kiếm */
+
+.search-bar {
+  flex-grow: 1;
+  max-width: 500px;
+}
+
+/* --- MENU --- */
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 5px;
+  min-width: 80px;
+  color: white;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.menu a:hover {
+  color: yellow;
+}
+
+/* ==============================================
+--- CSS CHO TRANG LIÊN HỆ ---
+============================================== */
+
+/* Đánh dấu link menu "Liên hệ" là active */
+.menu a.active {
+  color: yellow;
+  font-weight: 600;
+}
+
+.menu a i {
+  font-size: 18px;
+}
+
+/* Container chính của trang liên hệ */
+.contact-page {
+  padding-top: 140px;
+  padding-bottom: 50px;
+  min-height: 100vh;
+}
+
+.heading {
+  max-width: 960px;
+  margin: 20px auto 40px auto;
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #555;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+/* Hộp chứa form */
+.contact-form {
+  background: #222;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Form của Bootstrap */
+.contact-form .form-label {
+  color: #0073cf;
+  font-weight: 600;
+}
+
+.contact-form .form-control,
+.contact-form .form-select {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #fff;
+  padding: 12px;
+}
+
+.contact-form .form-control::placeholder {
+  color: #888;
+}
+
+.contact-form .form-control:focus,
+.contact-form .form-select:focus {
+  background-color: #333;
+  color: #fff;
+  border-color: #0073cf;
+  box-shadow: 0 0 0 0.25rem rgba(0, 115, 207, 0.5);
+}
+
+/* Nút gửi */
+.btn-submit {
+  background-color: #0073cf;
+  border: none;
+  color: white;
+  padding: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #0056a0;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Hộp thông tin (bên phải) */
+.contact-info {
+  background: #222;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.contact-info h4 {
+  color: #0073cf;
+  font-weight: 700;
+  border-bottom: 2px solid #0073cf;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.contact-info ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+/* Icon */
+.contact-info ul li i {
+  color: #0073cf;
+  font-size: 1.2rem;
+  width: 25px;
+  text-align: center;
+  padding-top: 3px;
+}
+
+/* Bản đồ */
+.map-container {
+  background: #222;
+  padding: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  border-radius: 5px;
+}
+
+/*--- Footer ---*/
+.footer {
+  border-top: 4px solid #0073cf;
+  padding: 40px 20px;
+  text-align: center;
+  background: #1a1a1a;
+  color: #bbb;
+}
+
+.footer .social {
+  font-size: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.footer .social a:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+.footer-infor p {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #fff;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 3px 0;
+  margin-top: 15px;
+}
+
+/* ================================
+   🌐 RESPONSIVE TỔNG THỂ
+================================ */
+
+/* --- Laptop nhỏ (≤1200px) --- */
+@media (max-width: 1200px) {
+  .header-left {
+    gap: 20px;
+  }
+  .header-left span.cinema-name {
+    font-size: 1.5em;
+  }
+  .menu a {
+    font-size: 15px;
+    padding: 8px 4px;
+  }
+}
+
+/* --- Tablet ngang (≤992px) --- */
+@media (max-width: 991px) {
+  .header-left {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .header-left a img {
+    height: 60px;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px 0;
+  }
+
+  .menu a {
+    min-width: 70px;
+    font-size: 14px;
+    padding: 6px 3px;
+  }
+
+  .contact-page {
+    padding-top: 120px;
+  }
+
+  .contact-info {
+    margin-top: 30px;
+  }
+}
+
+/* --- Tablet dọc (≤768px) --- */
+@media (max-width: 768px) {
+  .menu {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 5px 10px;
+    scrollbar-width: thin;
+  }
+
+  .menu::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .menu::-webkit-scrollbar-thumb {
+    background: #0073cf;
+    border-radius: 10px;
+  }
+
+  .menu a {
+    flex: 0 0 auto;
+    min-width: 80px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .contact-form,
+  .contact-info,
+  .map-container {
+    margin: 0 10px;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+  }
+
+  .map-container iframe {
+    height: 250px;
+  }
+}
+
+/* --- Điện thoại (≤576px) --- */
+@media (max-width: 599px) {
+  /* 1. Xử lý thanh đăng nhập/đăng ký */
+  .top-bar {
+    display: flex;
+    flex-direction: column;
+  }
+  .header-right {
+    order: -1;
+    justify-content: center;
+  }
+
+  /* 2. Điều chỉnh header-left */
+  .header-left {
+    /* Chuyển lại về flex-direction: row để logo và menu không bị xuống dòng */
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px 10px;
+    flex-wrap: wrap; /* Quan trọng để menu-bar có thể xuống dòng */
+  }
+
+  /* 3. Điều chỉnh Logo & Tên Rạp */
+  .header-left a img {
+    height: 50px;
+  }
+  .header-left span.cinema-name {
+    font-size: 1.2em;
+  }
+
+  /* 4. Điều chỉnh Menu Bar (Cuộn ngang) */
+  .menu-bar {
+    margin-left: 0;
+    width: 100%;
+    overflow-x: auto;
+    order: 3;
+    white-space: nowrap;
+    padding: 5px 0;
+  }
+
+  .menu {
+    gap: 10px;
+    flex-wrap: nowrap; /* NGĂN menu xuống dòng */
+    padding-bottom: 5px;
+  }
+
+  .menu a {
+    font-size: 14px;
+    padding: 6px 8px;
+    min-width: 60px;
+    flex-shrink: 0; /* Ngăn các mục menu bị co lại */
+  }
+
+  /* 5. Điều chỉnh Movie Container */
+  .movie-container {
+    /* Tùy chỉnh hiển thị danh sách phim trên mobile */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}

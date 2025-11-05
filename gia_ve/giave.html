@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đặt Vé - UTC Cinema</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="giave.css" />
+  </head>
+
+  <body>
+    <header class="container-fluid p-0">
+      <div class="top-bar">
+        <div class="header-right">
+          <a href="/dangKi-dangNhap/dang_nhap.html">Đăng nhập</a>
+          <span>|</span>
+          <a href="/dangKi-dangNhap/dang_ki.html">Đăng ký</a>
+        </div>
+
+        <div class="header-left container d-flex align-items-center py-2">
+          <div class="d-flex align-items-center gap-3">
+            <a href="../menu.html">
+              <img
+                id="logo"
+                src="/New folder/utc-removebg-preview.png"
+                alt="logo"
+              />
+            </a>
+            <span class="cinema-name">UTC cinema</span>
+          </div>
+
+          <div class="menu-bar">
+            <nav class="menu d-flex align-items-center gap-3">
+              <a href="/menu.html"><i class="fas fa-home"></i> Trang chủ</a>
+              <a href="#"><i class="fas fa-ticket-alt"></i> Giá vé</a>
+              <a href="/khuyen_mai/khuyen_mai_page.html"
+                ><i class="fas fa-gift"></i> Ưu đãi</a
+              >
+              <a href="/lienHe/lien_he.html"
+                ><i class="fas fa-star"></i> Liên hệ</a
+              >
+              <a href="/dangKi-dangNhap/dang_ki.html"
+                ><i class="fas fa-user"></i> Thành viên</a
+              >
+              <a href="/schedule.html"
+                ><i class="fas fa-calendar-alt"></i> Lịch chiếu</a
+              >
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="booking-page">
+      <div class="booking-container">
+        <h2 class="heading">ĐẶT VÉ XEM PHIM</h2>
+
+        <div class="booking-steps">
+          <div class="step active" id="step1">
+            <div class="step-icon">1</div>
+            <div class="step-text">Chọn Phim & Suất Chiếu</div>
+          </div>
+          <div class="step" id="step2">
+            <div class="step-icon">2</div>
+            <div class="step-text">Chọn Ghế Ngồi</div>
+          </div>
+          <div class="step" id="step3">
+            <div class="step-icon">3</div>
+            <div class="step-text">Thanh Toán</div>
+          </div>
+        </div>
+
+        <div class="step-content" id="step1-content">
+          <h3 class="mb-4">Chọn Phim & Suất Chiếu</h3>
+
+          <div class="mb-4">
+            <label for="date-picker" class="form-label">Chọn Ngày:</label>
+            <input
+              type="date"
+              class="form-control"
+              id="date-picker"
+              min="<?= date('Y-m-d') ?>"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="time-select" class="form-label">Chọn Suất Chiếu:</label>
+            <select class="form-select" id="time-select">
+              <option value="09:00">09:00</option>
+              <option value="13:30">13:30</option>
+              <option value="18:00">18:00</option>
+              <option value="21:00">21:00</option>
+            </select>
+          </div>
+
+          <h4 class="mb-3">Chọn Phim:</h4>
+          <div class="movie-selection">
+            <div class="movie-option" data-movie="conan">
+              <div class="box-img">
+                <img
+                  src="/New folder/conan.jpg"
+                  alt="Thám Tử Lừng Danh Conan"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>Thám Tử Lừng Danh Conan</h3>
+                <span>120 phút <br />Hoạt hình, Bí ẩn</span>
+              </div>
+            </div>
+
+            <div class="movie-option" data-movie="lord">
+              <div class="box-img">
+                <img
+                  src="/New folder/lotm.jpg"
+                  alt="Lord of Mysteries"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>Lord of Mysteries</h3>
+                <span>120 phút <br />Hành động, Huyền ảo</span>
+              </div>
+            </div>
+
+            <div class="movie-option" data-movie="grandma">
+              <div class="box-img">
+                <img
+                  src="/New folder/grandma.jpg"
+                  alt="Cục Vàng Của Bà"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>Cục Vàng Của Bà</h3>
+                <span>90 phút <br />Gia đình, Hài hước</span>
+              </div>
+            </div>
+
+            <div class="movie-option" data-movie="caima">
+              <div class="box-img">
+                <img
+                  src="/New folder/caima.jpg"
+                  alt="Cải Mã"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>Cải Mã</h3>
+                <span>110 phút <br />Kinh dị, Hồi hộp</span>
+              </div>
+            </div>
+
+            <div
+              class="movie-option"
+              data-movie="muc-su-thay-do-va-con-quy-am-tri"
+            >
+              <div class="box-img">
+                <img
+                  src="/New folder/thaymuc.jpg"
+                  alt="MỤC SƯ, THẦY ĐỒ VÀ CON QUỶ ÂM TRÌ"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>MỤC SƯ, THẦY ĐỒ VÀ CON QUỶ ÂM TRÌ</h3>
+                <span
+                  >130 phút <br />
+                  Kinh dị</span
+                >
+              </div>
+            </div>
+
+            <div class="movie-option" data-movie="tu-chien-tren-khong">
+              <div class="box-img">
+                <img
+                  src="/New folder/sky.jpg"
+                  alt="Tử chiến trên không"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>Tử chiến trên không</h3>
+                <span
+                  >125 phút <br />
+                  Hành động, Hồi hộp</span
+                >
+              </div>
+            </div>
+
+            <div class="movie-option" data-movie="nhat-niem-vinh-hang">
+              <div class="box-img">
+                <img
+                  src="/New folder/btt.jpg"
+                  alt="Nhất niệm vĩnh hằng"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>Nhất niệm vĩnh hằng</h3>
+                <span
+                  >105 phút <br />
+                  Kungfu, Hài hước</span
+                >
+              </div>
+            </div>
+
+            <div class="movie-option" data-movie="one-punch-man">
+              <div class="box-img">
+                <img
+                  src="/New folder/onepunch.jpg"
+                  alt="One Punch Man"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>One Punch Man</h3>
+                <span
+                  >100 phút <br />
+                  Hài hước, Hành động</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="movie-option"
+              data-movie="to-quoc-trong-tim-the-concert-film"
+            >
+              <div class="box-img">
+                <img
+                  src="/New folder/VN.jpg"
+                  alt="TỔ QUỐC TRONG TIM: THE CONCERT FILM"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>TỔ QUỐC TRONG TIM: THE CONCERT FILM</h3>
+                <span
+                  >95 phút <br />
+                  Hòa nhạc, Tài liệu</span
+                >
+              </div>
+            </div>
+
+            <div class="movie-option" data-movie="nha-ma-xo">
+              <div class="box-img">
+                <img
+                  src="/New folder/ma.jpg"
+                  alt="NHÀ MA XÓ"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>NHÀ MA XÓ</h3>
+                <span
+                  >108 phút <br />
+                  Kinh dị</span
+                >
+              </div>
+            </div>
+
+            <div class="movie-option" data-movie="bi-mat-sau-bua-tiec">
+              <div class="box-img">
+                <img
+                  src="/New folder/BM.jpg"
+                  alt="BÍ MẬT SAU BỮA TIỆC"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>BÍ MẬT SAU BỮA TIỆC</h3>
+                <span
+                  >120 phút <br />
+                  Hành động, Hồi hộp</span
+                >
+              </div>
+            </div>
+
+            <div class="movie-option" data-movie="dien-thoai-den-2">
+              <div class="box-img">
+                <img
+                  src="/New folder/dt.jpg"
+                  alt="ĐIỆN THOẠI ĐEN 2"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>ĐIỆN THOẠI ĐEN 2</h3>
+                <span
+                  >120 phút <br />
+                  Hành động, Huyền Ảo, Kinh dị</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="movie-option"
+              data-movie="chu-thuat-hoi-chien-the-movie"
+            >
+              <div class="box-img">
+                <img
+                  src="/New folder/jjk.jpg"
+                  alt="CHÚ THUẬT HỒI CHIẾN: THE MOVIE"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>CHÚ THUẬT HỒI CHIẾN: THE MOVIE</h3>
+                <span
+                  >120 phút <br />
+                  Hành động, Huyền Ảo, Sigma</span
+                >
+              </div>
+            </div>
+
+            <div class="movie-option" data-movie="chainsaw-man-chuong-reze">
+              <div class="box-img">
+                <img
+                  src="/New folder/chainsaw.jpg"
+                  alt="CHAINSAW MAN - THE MOVIE: CHƯƠNG REZE"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>CHAINSAW MAN - THE MOVIE: CHƯƠNG REZE</h3>
+                <span
+                  >120 phút <br />
+                  Hành động, Huyền Ảo, Kinh dị</span
+                >
+              </div>
+            </div>
+
+            <div class="movie-option" data-movie="gio-van-thoi">
+              <div class="box-img">
+                <img
+                  src="/New folder/wind.jpg"
+                  alt="GIÓ VẪN THỔI"
+                  class="movie-poster"
+                />
+              </div>
+              <div class="movie-info">
+                <h3>GIÓ VẪN THỔI</h3>
+                <span
+                  >120 phút <br />
+                  Tình cảm, Huyền Ảo</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing-table">
+            <h4>BẢNG GIÁ VÉ</h4>
+            <div class="price-item">
+              <span class="price-name">Vé Thường</span>
+              <span class="price-value">80,000 VNĐ</span>
+            </div>
+            <div class="price-item">
+              <span class="price-name">Vé VIP</span>
+              <span class="price-value">120,000 VNĐ</span>
+            </div>
+            <div class="price-item">
+              <span class="price-name">Vé Nhóm (4 người)</span>
+              <span class="price-value">280,000 VNĐ</span>
+            </div>
+            <div class="price-item">
+              <span class="price-name"
+                >Vé Gia Đình (2 người lớn + 2 trẻ em)</span
+              >
+              <span class="price-value">300,000 VNĐ</span>
+            </div>
+          </div>
+
+          <div class="booking-navigation">
+            <button class="btn-booking btn-prev" disabled>Quay Lại</button>
+            <button class="btn-booking btn-next" id="to-step2">
+              Tiếp Theo
+            </button>
+          </div>
+        </div>
+
+        <div class="step-content" id="step2-content" style="display: none">
+          <h3 class="mb-4">Chọn Ghế Ngồi</h3>
+
+          <div class="seat-selection">
+            <div class="screen">MÀN HÌNH</div>
+
+            <div class="seats-container">
+              <div class="seat-row">
+                <div class="seat available" data-seat="A1" data-type="normal">
+                  A1
+                </div>
+                <div class="seat available" data-seat="A2" data-type="normal">
+                  A2
+                </div>
+                <div class="seat available" data-seat="A3" data-type="normal">
+                  A3
+                </div>
+                <div class="seat available" data-seat="A4" data-type="normal">
+                  A4
+                </div>
+                <div class="seat available" data-seat="A5" data-type="normal">
+                  A5
+                </div>
+                <div class="seat available" data-seat="A6" data-type="normal">
+                  A6
+                </div>
+                <div class="seat available" data-seat="A7" data-type="normal">
+                  A7
+                </div>
+                <div class="seat available" data-seat="A8" data-type="normal">
+                  A8
+                </div>
+              </div>
+
+              <div class="seat-row">
+                <div class="seat vip available" data-seat="B1" data-type="vip">
+                  B1
+                </div>
+                <div class="seat vip available" data-seat="B2" data-type="vip">
+                  B2
+                </div>
+                <div class="seat vip available" data-seat="B3" data-type="vip">
+                  B3
+                </div>
+                <div class="seat vip available" data-seat="B4" data-type="vip">
+                  B4
+                </div>
+                <div class="seat vip available" data-seat="B5" data-type="vip">
+                  B5
+                </div>
+                <div class="seat vip available" data-seat="B6" data-type="vip">
+                  B6
+                </div>
+                <div class="seat vip available" data-seat="B7" data-type="vip">
+                  B7
+                </div>
+                <div class="seat vip available" data-seat="B8" data-type="vip">
+                  B8
+                </div>
+              </div>
+
+              <div class="seat-row">
+                <div class="seat available" data-seat="C1" data-type="normal">
+                  C1
+                </div>
+                <div class="seat available" data-seat="C2" data-type="normal">
+                  C2
+                </div>
+                <div class="seat occupied" data-seat="C3">C3</div>
+                <div class="seat occupied" data-seat="C4">C4</div>
+                <div class="seat available" data-seat="C5" data-type="normal">
+                  C5
+                </div>
+                <div class="seat available" data-seat="C6" data-type="normal">
+                  C6
+                </div>
+                <div class="seat available" data-seat="C7" data-type="normal">
+                  C7
+                </div>
+                <div class="seat available" data-seat="C8" data-type="normal">
+                  C8
+                </div>
+              </div>
+
+              <div class="seat-row">
+                <div class="seat available" data-seat="D1" data-type="normal">
+                  D1
+                </div>
+                <div class="seat available" data-seat="D2" data-type="normal">
+                  D2
+                </div>
+                <div class="seat available" data-seat="D3" data-type="normal">
+                  D3
+                </div>
+                <div class="seat available" data-seat="D4" data-type="normal">
+                  D4
+                </div>
+                <div class="seat available" data-seat="D5" data-type="normal">
+                  D5
+                </div>
+                <div class="seat available" data-seat="D6" data-type="normal">
+                  D6
+                </div>
+                <div class="seat available" data-seat="D7" data-type="normal">
+                  D7
+                </div>
+                <div class="seat available" data-seat="D8" data-type="normal">
+                  D8
+                </div>
+              </div>
+
+              <div class="seat-row">
+                <div class="seat vip available" data-seat="E1" data-type="vip">
+                  E1
+                </div>
+                <div class="seat vip available" data-seat="E2" data-type="vip">
+                  E2
+                </div>
+                <div class="seat vip available" data-seat="E3" data-type="vip">
+                  E3
+                </div>
+                <div class="seat vip available" data-seat="E4" data-type="vip">
+                  E4
+                </div>
+                <div class="seat vip available" data-seat="E5" data-type="vip">
+                  E5
+                </div>
+                <div class="seat vip available" data-seat="E6" data-type="vip">
+                  E6
+                </div>
+                <div class="seat vip available" data-seat="E7" data-type="vip">
+                  E7
+                </div>
+                <div class="seat vip available" data-seat="E8" data-type="vip">
+                  E8
+                </div>
+              </div>
+
+              <div class="seat-row">
+                <div
+                  class="seat family available"
+                  data-seat="F1"
+                  data-type="family"
+                >
+                  F1
+                </div>
+                <div
+                  class="seat family available"
+                  data-seat="F2"
+                  data-type="family"
+                >
+                  F2
+                </div>
+                <div
+                  class="seat family available"
+                  data-seat="F3"
+                  data-type="family"
+                >
+                  F3
+                </div>
+                <div
+                  class="seat family available"
+                  data-seat="F4"
+                  data-type="family"
+                >
+                  F4
+                </div>
+              </div>
+            </div>
+
+            <div class="seat-legend">
+              <div class="legend-item">
+                <div class="seat legend available"></div>
+                <span>Có sẵn</span>
+              </div>
+              <div class="legend-item">
+                <div class="seat legend selected"></div>
+                <span>Đã chọn</span>
+              </div>
+              <div class="legend-item">
+                <div class="seat legend occupied"></div>
+                <span>Đã đặt</span>
+              </div>
+              <div class="legend-item">
+                <div class="seat legend vip"></div>
+                <span>Ghế VIP</span>
+              </div>
+              <div class="legend-item">
+                <div class="seat legend family"></div>
+                <span>Ghế Gia Đình</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-navigation">
+            <button class="btn-booking btn-prev" id="to-step1">Quay Lại</button>
+            <button class="btn-booking btn-next" id="to-step3">
+              Tiếp Theo
+            </button>
+          </div>
+        </div>
+
+        <div class="step-content" id="step3-content" style="display: none">
+          <h3 class="mb-4">Thanh Toán</h3>
+
+          <div class="payment-summary">
+            <h4 class="mb-3">Tóm Tắt Đơn Hàng</h4>
+            <div class="summary-item">
+              <span>Phim:</span>
+              <span id="summary-movie">Thám Tử Lừng Danh Conan</span>
+            </div>
+            <div class="summary-item">
+              <span>Suất chiếu:</span>
+              <span id="summary-time">30/10/2025 - 18:00</span>
+            </div>
+            <div class="summary-item">
+              <span>Ghế đã chọn:</span>
+              <span id="summary-seats">A1, A2</span>
+            </div>
+            <div class="summary-item">
+              <span>Giá vé thường:</span>
+              <span>80,000 VNĐ x <span id="normal-count">2</span></span>
+            </div>
+            <div class="summary-item">
+              <span>Giá vé VIP:</span>
+              <span>120,000 VNĐ x <span id="vip-count">0</span></span>
+            </div>
+            <div class="summary-item">
+              <span>Giá vé gia đình:</span>
+              <span>300,000 VNĐ x <span id="family-count">0</span></span>
+            </div>
+            <div class="summary-item summary-total">
+              <span>Tổng cộng:</span>
+              <span id="summary-total">160,000 VNĐ</span>
+            </div>
+          </div>
+
+          <h4 class="mb-3">Chọn Phương Thức Thanh Toán</h4>
+          <div class="payment-methods">
+            <div class="payment-method" data-method="momo">
+              <div class="payment-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="payment-name">Ví MoMo</div>
+            </div>
+
+            <div class="payment-method" data-method="zalopay">
+              <div class="payment-icon">
+                <i class="fas fa-qrcode"></i>
+              </div>
+              <div class="payment-name">ZaloPay</div>
+            </div>
+
+            <div class="payment-method" data-method="banking">
+              <div class="payment-icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <div class="payment-name">Chuyển Khoản</div>
+            </div>
+
+            <div class="payment-method" data-method="cash">
+              <div class="payment-icon">
+                <i class="fas fa-money-bill-wave"></i>
+              </div>
+              <div class="payment-name">Tiền Mặt</div>
+            </div>
+          </div>
+
+          <div class="booking-navigation">
+            <button class="btn-booking btn-prev" id="to-step2">Quay Lại</button>
+            <button class="btn-booking btn-confirm" id="confirm-payment">
+              Xác Nhận Thanh Toán
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section class="footer">
+      <div class="social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <div class="footer-infor">
+        <p>Đia chỉ:Số 3 Cầu giấy</p>
+        <p>Liên hệ:123456789</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 UTC Cinema. All Rights Reserved.</p>
+        <p>Created by <strong>MẠNH DŨNG</strong></p>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="giave.js"></script>
+  </body>
+</html>

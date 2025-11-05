@@ -1,0 +1,444 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* === RESET & CƠ BẢN === */
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background: #1a1a1a;
+  color: white;
+  overflow-x: hidden;
+  /* Đã chỉnh lại padding-top cho phù hợp với Header mới */
+  padding-top: 120px;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* === HEADER (Đã cập nhật theo yêu cầu) === */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header * {
+  text-decoration: none;
+  color: white;
+}
+
+.top-bar {
+  /* Khắc phục lỗi: cần đặt header-right và header-left vào trong top-bar */
+  width: 100%;
+}
+
+.header-right {
+  background: #0073cf;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  flex-wrap: wrap;
+}
+
+.header-right a:hover {
+  color: rgb(224, 221, 43);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  /* Giảm gap giữa logo và tên rạp */
+  gap: 15px;
+  padding: 10px 20px;
+  /* Quan trọng: Ngăn logo và menu xuống dòng */
+  flex-wrap: nowrap;
+  font-size: 20px;
+}
+
+.header-left a img {
+  height: 80px;
+  width: auto;
+}
+
+.header-left span.cinema-name {
+  font-weight: bold;
+  font-size: 1.8em;
+  line-height: 1;
+}
+
+/* === MENU (Đã cập nhật theo yêu cầu) === */
+.menu-bar {
+  margin-left: auto;
+}
+
+.menu a {
+  /* HIỂN THỊ ICON VÀ CHỮ DỌC */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 5px;
+  min-width: 80px;
+  color: white;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.menu a:hover {
+  color: yellow;
+}
+/* KẾT THÚC PHẦN HEADER/MENU ĐÃ CẬP NHẬT */
+
+/* === PAGE HEADER === */
+.page-header {
+  background: linear-gradient(135deg, #0073cf 0%, #005aa0 100%);
+  padding: 60px 20px 40px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.page-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* === PROMOTION TABS === */
+.promo-tabs {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+.promo-tab {
+  padding: 12px 30px;
+  background: #2a2a2a;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+.promo-tab:hover {
+  background: #333;
+}
+
+.promo-tab.active {
+  background: #0073cf;
+  border-color: #0073cf;
+  box-shadow: 0 4px 15px rgba(0, 115, 207, 0.4);
+}
+
+/* === PROMOTIONS CONTAINER === */
+.promotions-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.promo-card {
+  background: #2a2a2a;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+
+.promo-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 115, 207, 0.3);
+}
+
+.promo-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #ff8000, #ff6b00);
+}
+
+.promo-banner {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.promo-banner::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30%, -30%);
+  }
+}
+
+.promo-discount {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff8000;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(255, 128, 0, 0.5);
+}
+
+.promo-content {
+  padding: 25px;
+}
+
+.promo-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0073cf;
+  margin-bottom: 12px;
+}
+
+.promo-description {
+  color: #aaa;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.promo-validity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ff8000;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.promo-code {
+  background: #333;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.promo-code code {
+  font-family: "Courier New", monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0073cf;
+}
+
+.copy-btn {
+  background: #0073cf;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.copy-btn:hover {
+  background: #005aa0;
+}
+
+/* === SPECIAL OFFERS SECTION === */
+.special-offers {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 40px 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 115, 207, 0.1) 0%,
+    rgba(255, 128, 0, 0.1) 100%
+  );
+  border-radius: 20px;
+}
+.special-offers h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #0073cf;
+}
+
+.offer-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.offer-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.offer-card {
+  min-width: 300px;
+  background: #2a2a2a;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.offer-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ff8000;
+}
+
+.offer-card h3 {
+  color: #ff8000;
+  margin-bottom: 15px;
+}
+
+/* === FOOTER === */
+.footer {
+  background: #1a1a1a;
+  border-top: 4px solid #0073cf;
+  padding: 30px 20px;
+  text-align: center;
+  color: #999;
+  margin-top: 60px;
+}
+
+/* === RESPONSIVE (Đã cập nhật theo yêu cầu) === */
+
+/* Nhỏ hơn 599px (Mobile) */
+@media (max-width: 599px) {
+  /* 1. Xử lý thanh đăng nhập/đăng ký */
+  .top-bar {
+    display: flex;
+    flex-direction: column;
+  }
+  .header-right {
+    order: -1;
+    justify-content: center;
+  }
+
+  /* 2. Điều chỉnh header-left */
+  .header-left {
+    /* Chuyển lại về flex-direction: row để logo và menu không bị xuống dòng */
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px 10px;
+    flex-wrap: wrap; /* Quan trọng để menu-bar có thể xuống dòng */
+  }
+
+  /* 3. Điều chỉnh Logo & Tên Rạp */
+  .header-left a img {
+    height: 50px;
+  }
+  .header-left span.cinema-name {
+    font-size: 1.2em;
+  }
+
+  /* 4. Điều chỉnh Menu Bar (Cuộn ngang) */
+  .menu-bar {
+    margin-left: 0;
+    width: 100%;
+    overflow-x: auto;
+    order: 3;
+    white-space: nowrap;
+    padding: 5px 0;
+  }
+
+  .menu {
+    gap: 10px;
+    flex-wrap: nowrap; /* NGĂN menu xuống dòng */
+    padding-bottom: 5px;
+  }
+
+  .menu a {
+    font-size: 14px;
+    padding: 6px 8px;
+    min-width: 60px;
+    flex-shrink: 0; /* Ngăn các mục menu bị co lại */
+  }
+
+  /* 5. Điều chỉnh Promotions Container */
+  .promo-grid {
+    /* Tùy chỉnh hiển thị danh sách khuyến mãi trên mobile */
+    grid-template-columns: 1fr;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .promo-tabs {
+    flex-direction: column;
+  }
+
+  body {
+    /* Tăng padding top trên mobile nếu header quá lớn */
+    padding-top: 150px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 991px) {
+  /* Điều chỉnh cho màn hình tablet/laptop nhỏ */
+  .promo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .header-left {
+    padding: 10px 15px;
+  }
+}

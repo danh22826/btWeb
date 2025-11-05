@@ -1,0 +1,435 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* === RESET & CƠ BẢN === */
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background: #1a1a1a;
+  color: white;
+  overflow-x: hidden;
+  padding-top: 120px;
+}
+
+/* === HEADER === */
+a {
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header * {
+  text-decoration: none;
+  color: white;
+}
+
+.header-right {
+  background: #0073cf;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  flex-wrap: wrap;
+}
+
+.header-right a:hover {
+  color: rgb(224, 221, 43);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 10px 20px;
+  flex-wrap: nowrap;
+  font-size: 20px;
+}
+
+.header-left a img {
+  height: 80px;
+  width: auto;
+}
+
+.header-left span.cinema-name {
+  font-weight: bold;
+  font-size: 1.8em;
+  line-height: 1;
+}
+
+/* === MENU === */
+.menu-bar {
+  margin-left: auto;
+}
+
+.menu a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 5px;
+  min-width: 80px;
+  color: white;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.menu a:hover {
+  color: yellow;
+}
+
+/* === SWIPER / BANNER === */
+.home {
+  max-width: 960px;
+  margin: 20px auto;
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #555;
+}
+
+.home .swiper-slide {
+  width: auto;
+  background: none;
+}
+
+.upcoming-movies .home {
+  padding-top: 0;
+}
+
+.upcoming-movies .swiper-slide {
+  margin-top: 20px;
+}
+
+/* === MOVIE CARD (Dùng cho Swiper) === */
+.movie-card {
+  width: 200px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card:hover .button-group {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.card-poster {
+  position: relative;
+  overflow: hidden;
+  /* Đảm bảo tỷ lệ 2:3 cho Swiper */
+  aspect-ratio: 2 / 3;
+}
+
+.card-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* === BUTTON GROUP (Chung cho Swiper và Movies) === */
+.button-group {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0;
+  opacity: 0;
+  transition: all 0.4s ease;
+  width: 85%;
+}
+
+.detail-btn,
+.buy-btn {
+  /* Style cơ bản cho các nút */
+  flex: 1;
+  border: none;
+  padding: 12px 0;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🚨 STYLE THẺ <a> DETAIL-BTN (Rất quan trọng) */
+.detail-btn {
+  /* Đảm bảo thẻ <a> hiển thị như button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+  border-radius: 8px 0 0 8px;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+}
+
+.buy-btn {
+  background: linear-gradient(135deg, #ff8000 0%, #e67300 100%);
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 4px 15px rgba(255, 128, 0, 0.4);
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover effects */
+.detail-btn:hover {
+  background: linear-gradient(135deg, #ff1a24 0%, #e50914 100%);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+  transform: translateY(-2px);
+  color: white;
+  /* Giữ màu chữ trắng cho thẻ <a> */
+}
+
+.buy-btn:hover {
+  background: linear-gradient(135deg, #ff9933 0%, #ff8000 100%);
+  box-shadow: 0 6px 20px rgba(255, 128, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Hiệu ứng nhấp nháy khi hover */
+.detail-btn::before,
+.buy-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.detail-btn:hover::before,
+.buy-btn:hover::before {
+  left: 100%;
+}
+
+/* === CARD INFO (Chung) === */
+.card-info {
+  padding: 15px 10px;
+}
+
+.card-info h3,
+.box h3 {
+  font-size: 16px;
+  margin: 0 0 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.box h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.card-info p {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.box span {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+/* === MOVIES SECTION (Phim đang chiếu) === */
+.heading {
+  max-width: 960px;
+  margin: 20px auto;
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #555;
+}
+
+.movie-container {
+  max-width: 960px;
+  margin: 20px auto 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.box {
+  position: relative;
+  height: auto;
+  /* Chiều cao linh hoạt theo tỷ lệ */
+}
+
+.box .box-img {
+  width: 100%;
+  /* 🚨 KHẮC PHỤC LỖI KÍCH THƯỚC: Ép ảnh theo tỷ lệ 2:3 chuẩn */
+  aspect-ratio: 2 / 3;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+}
+
+.box .box-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.box .box-img img:hover {
+  transform: scale(1.05);
+}
+
+.box-img:hover .button-group {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+/* === FOOTER === */
+.footer {
+  background: #111;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.social {
+  margin-bottom: 20px;
+}
+
+.social a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #333;
+  color: #fff;
+  margin: 0 10px;
+  border-radius: 50%;
+  line-height: 40px;
+  transition: all 0.3s ease;
+}
+
+.social a:hover {
+  background: #0073cf;
+}
+
+.footer-infor p {
+  color: #ccc;
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+.footer-bottom {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+@media (max-width: 991px) and (min-width: 600px) {
+  .movie-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .menu {
+    flex-wrap: wrap;
+  }
+}
+
+/* Nhỏ hơn 600px (Mobile) */
+@media (max-width: 599px) {
+  /* 1. Xử lý thanh đăng nhập/đăng ký */
+  .top-bar {
+    display: flex;
+    flex-direction: column;
+  }
+  .header-right {
+    order: -1;
+    justify-content: center;
+  }
+
+  /* 2. Điều chỉnh header-left */
+  .header-left {
+    /* Chuyển lại về flex-direction: row để logo và menu không bị xuống dòng */
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px 10px;
+    flex-wrap: wrap; /* Quan trọng để menu-bar có thể xuống dòng */
+  }
+
+  /* 3. Điều chỉnh Logo & Tên Rạp */
+  .header-left a img {
+    height: 50px;
+  }
+  .header-left span.cinema-name {
+    font-size: 1.2em;
+  }
+
+  /* 4. Điều chỉnh Menu Bar (Cuộn ngang) */
+  .menu-bar {
+    margin-left: 0;
+    width: 100%;
+    overflow-x: auto;
+    order: 3;
+    white-space: nowrap;
+    padding: 5px 0;
+  }
+
+  .menu {
+    gap: 10px;
+    flex-wrap: nowrap; /* NGĂN menu xuống dòng */
+    padding-bottom: 5px;
+  }
+
+  .menu a {
+    font-size: 14px;
+    padding: 6px 8px;
+    min-width: 60px;
+    flex-shrink: 0; /* Ngăn các mục menu bị co lại */
+  }
+
+  /* 5. Điều chỉnh Movie Container */
+  .movie-container {
+    /* Tùy chỉnh hiển thị danh sách phim trên mobile */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframe - Khuyến Mãi (Căn Giữa)</title>
+
+    <style>
+      /* =================================== */
+      /* CSS CHUNG */
+      /* =================================== */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        /* Thêm padding trên/dưới để dễ nhìn */
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      /* Khối căn giữa */
+      .centered-block {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 15px; /* Giữ padding */
+      }
+
+      .container {
+        /* container giờ chỉ là wrapper logic */
+      }
+
+      /* Khối wireframe chung */
+      .wireframe-block {
+        border: 2px dashed #999;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f0f0f0;
+        box-sizing: border-box;
+        min-height: 80px; /* Chiều cao tối thiểu */
+      }
+
+      /* Footer */
+      footer.wireframe-block {
+        margin-top: 0; /* Bỏ margin top vì .centered-block đã có */
+        margin-bottom: 0;
+        background-color: #ddd;
+        min-height: 100px;
+      }
+
+      /* =================================== */
+      /* CSS TRANG KHUYẾN MÃI (Giữ nguyên) */
+      /* =================================== */
+
+      /* 1. Header của trang (Banner) */
+      .page-header-wireframe {
+        text-align: center;
+        padding: 40px 20px;
+        min-height: 120px;
+      }
+
+      /* 2. Thanh Tabs */
+      .tabs-wireframe {
+        text-align: center;
+        padding: 15px;
+        min-height: 60px;
+      }
+
+      /* 3. Lưới Khuyến Mãi */
+      .promo-grid-wireframe {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+        padding: 0;
+      }
+
+      /* Thẻ Khuyến Mãi */
+      .wireframe-promo-card {
+        border: 1px solid #ccc;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      /* Banner của thẻ */
+      .promo-banner-placeholder {
+        width: 100%;
+        height: 180px;
+        background-color: #c0c0c0;
+      }
+
+      /* Nội dung thẻ (không chữ) */
+      .promo-content-placeholder {
+        padding: 15px;
+      }
+
+      /* Placeholder cho Tiêu đề */
+      .promo-title-placeholder {
+        height: 20px;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+
+      /* Placeholder cho Mô tả */
+      .promo-desc-placeholder {
+        height: 40px;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        margin-bottom: 15px;
+      }
+
+      /* Placeholder cho Code */
+      .promo-code-placeholder {
+        background: #f0f0f0;
+        border: 1px dashed #aaa;
+        padding: 10px;
+        height: 30px;
+        box-sizing: border-box;
+      }
+
+      /* 4. Khối Ưu Đãi Đặc Biệt */
+      .special-offers-wireframe {
+        /* Đã có style từ .wireframe-block */
+      }
+      .offer-carousel-wireframe {
+        border: 2px dashed #aaa;
+        background: #f0f0f0;
+        padding: 20px;
+        text-align: center;
+        min-height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="wireframe-block centered-block"
+      style="text-align: center"
+    ></header>
+
+    <div class="page-header-wireframe wireframe-block centered-block"></div>
+
+    <div class="centered-block">
+      <div class="container">
+        <div class="tabs-wireframe wireframe-block"></div>
+
+        <div class="promo-grid-wireframe">
+          <div class="wireframe-promo-card">
+            <div class="promo-banner-placeholder"></div>
+            <div class="promo-content-placeholder">
+              <div class="promo-title-placeholder"></div>
+              <div class="promo-desc-placeholder"></div>
+              <div class="promo-code-placeholder"></div>
+            </div>
+          </div>
+          <div class="wireframe-promo-card">
+            <div class="promo-banner-placeholder"></div>
+            <div class="promo-content-placeholder">
+              <div class="promo-title-placeholder"></div>
+              <div class="promo-desc-placeholder"></div>
+              <div class="promo-code-placeholder"></div>
+            </div>
+          </div>
+          <div class="wireframe-promo-card">
+            <div class="promo-banner-placeholder"></div>
+            <div class="promo-content-placeholder">
+              <div class="promo-title-placeholder"></div>
+              <div class="promo-desc-placeholder"></div>
+              <div class="promo-code-placeholder"></div>
+            </div>
+          </div>
+          <div class="wireframe-promo-card">
+            <div class="promo-banner-placeholder"></div>
+            <div class="promo-content-placeholder">
+              <div class="promo-title-placeholder"></div>
+              <div class="promo-desc-placeholder"></div>
+              <div class="promo-code-placeholder"></div>
+            </div>
+          </div>
+          <div class="wireframe-promo-card">
+            <div class="promo-banner-placeholder"></div>
+            <div class="promo-content-placeholder">
+              <div class="promo-title-placeholder"></div>
+              <div class="promo-desc-placeholder"></div>
+              <div class="promo-code-placeholder"></div>
+            </div>
+          </div>
+          <div class="wireframe-promo-card">
+            <div class="promo-banner-placeholder"></div>
+            <div class="promo-content-placeholder">
+              <div class="promo-title-placeholder"></div>
+              <div class="promo-desc-placeholder"></div>
+              <div class="promo-code-placeholder"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="special-offers-wireframe wireframe-block">
+          <div class="offer-carousel-wireframe"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="wireframe-block centered-block"></footer>
+  </body>
+</html>

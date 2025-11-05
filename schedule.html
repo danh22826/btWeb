@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UTC Cinema | Lịch chiếu</title>
+
+    <!-- Bootstrap + Font -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="schedule.css" />
+  </head>
+
+  <body>
+    <!-- ===== HEADER (giống hệt menu.html) ===== -->
+    <header class="container-fluid p-0">
+      <div class="top-bar">
+        <div class="header-right">
+          <a href="/dangKi-dangNhap/dang_nhap.html">Đăng nhập</a>
+          <span>|</span>
+          <a href="/dangKi-dangNhap/dang_ki.html">Đăng ký</a>
+        </div>
+
+        <div class="header-left container d-flex align-items-center py-2">
+          <div class="d-flex align-items-center gap-3">
+            <a href="menu.html">
+              <img
+                id="logo"
+                src="/New folder/utc-removebg-preview.png"
+                alt="logo"
+              />
+            </a>
+            <span class="cinema-name">UTC cinema</span>
+          </div>
+
+          <div class="menu-bar">
+            <nav class="menu d-flex align-items-center gap-3">
+              <a href="/menu.html"><i class="fas fa-home"></i> Trang chủ</a>
+              <a href="/gia_ve/giave.html"
+                ><i class="fas fa-ticket-alt"></i> Giá vé</a
+              >
+              <a href="/khuyen_mai/khuyen_mai_page.html"
+                ><i class="fas fa-gift"></i> Ưu đãi</a
+              >
+              <a href="/lienHe/lien_he.html"
+                ><i class="fas fa-star"></i> Liên hệ</a
+              >
+              <a href="/dangKi-dangNhap/dang_ki.html"
+                ><i class="fas fa-user"></i> Thành viên</a
+              >
+              <a href="/schedule.html" class="active"
+                ><i class="fas fa-calendar-alt"></i> Lịch chiếu</a
+              >
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="container">
+      <section class="filters card">
+        <div class="filters-row">
+          <div class="filter-group">
+            <label for="theater-select">Chọn rạp</label>
+            <select id="theater-select" aria-label="Chọn rạp"></select>
+          </div>
+
+          <div class="filter-group">
+            <label for="date-select">Chọn ngày</label>
+            <div
+              id="date-strip"
+              class="date-strip"
+              role="tablist"
+              aria-label="Danh sách ngày"
+            ></div>
+          </div>
+
+          <div class="filter-group small">
+            <label>Định dạng</label>
+            <div class="chip-group">
+              <button class="chip active" data-format="all">Tất cả</button>
+              <button class="chip" data-format="2d">2D</button>
+              <button class="chip" data-format="3d">3D</button>
+            </div>
+          </div>
+
+          <div class="filter-group small">
+            <label>Loại phim</label>
+            <div class="chip-group">
+              <button class="chip active" data-genre="all">Tất cả</button>
+              <button class="chip" data-genre="action">Hành động</button>
+              <button class="chip" data-genre="kids">Thiếu nhi</button>
+              <button class="chip" data-genre="horror">Kinh dị</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="results">
+        <div id="now-section" class="card section-block">
+          <h2>Danh sách phim</h2>
+          <p class="sub">
+            Dựa trên ngày hệ thống: <span id="device-date"></span>
+          </p>
+          <div id="movies-list" class="movies-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer text-center">
+      <p>&copy; 2025 UTC Cinema. All rights reserved.</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="menu.js"></script>
+    <script src="schedule.js"></script>
+  </body>
+</html>

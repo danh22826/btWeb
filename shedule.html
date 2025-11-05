@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframe - Lịch Chiếu (Căn Giữa)</title>
+
+    <style>
+      /* =================================== */
+      /* CSS CHUNG */
+      /* =================================== */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        /* Thêm padding trên/dưới để dễ nhìn */
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      /* Khối căn giữa */
+      .centered-block {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 15px; /* Giữ padding cho container */
+      }
+
+      .container {
+        /* container giờ chỉ là wrapper logic */
+      }
+
+      /* Khối wireframe chung */
+      .wireframe-block {
+        border: 2px dashed #999;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f0f0f0;
+        box-sizing: border-box;
+        min-height: 80px;
+      }
+
+      /* Header */
+      header.wireframe-block {
+        /* Đã được căn giữa bởi .centered-block */
+      }
+
+      /* Footer */
+      footer.wireframe-block {
+        margin-top: 0; /* Bỏ margin top vì .container đã có */
+        margin-bottom: 0;
+        background-color: #ddd;
+        min-height: 100px;
+      }
+
+      /* =================================== */
+      /* CSS TRANG LỊCH CHIẾU (Giữ nguyên) */
+      /* =================================== */
+
+      /* 1. KHỐI FILTERS (section.filters) */
+      .filters-row-wireframe {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: flex-end;
+      }
+
+      .filter-placeholder {
+        border: 1px solid #ccc;
+        background: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        min-height: 50px;
+      }
+
+      .filter-select {
+        width: 180px;
+        height: 40px;
+      }
+
+      .filter-date-strip {
+        flex-grow: 1;
+        min-width: 300px;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 10px;
+      }
+      .date-item-placeholder {
+        width: 50px;
+        height: 40px;
+        background: #e0e0e0;
+        border-radius: 5px;
+        flex-shrink: 0;
+      }
+
+      .filter-chip-group {
+        display: flex;
+        gap: 8px;
+        padding: 10px;
+      }
+      .chip-placeholder {
+        width: 60px;
+        height: 30px;
+        background: #e0e0e0;
+        border-radius: 15px;
+      }
+
+      /* 2. KHỐI KẾT QUẢ (section.results) */
+      .line-placeholder {
+        height: 18px;
+        background: #d0d0d0;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      .line-placeholder.title {
+        width: 30%;
+      }
+      .line-placeholder.subtitle {
+        width: 45%;
+        height: 14px;
+      }
+
+      .movies-list-wireframe {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .movie-item-wireframe {
+        display: flex;
+        gap: 15px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        background: #fff;
+        border-radius: 8px;
+      }
+
+      .movie-poster-placeholder {
+        width: 120px;
+        height: 170px;
+        background: #c0c0c0;
+        border-radius: 5px;
+        flex-shrink: 0;
+      }
+
+      .movie-info-placeholder {
+        flex-grow: 1;
+      }
+
+      .showtimes-placeholder {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+      }
+      .time-btn-placeholder {
+        width: 50px;
+        height: 30px;
+        background: #e0e0e0;
+        border-radius: 4px;
+      }
+
+      /* Responsive */
+      @media (max-width: 1200px) {
+        /* Không cần thay đổi nhiều vì .centered-block đã xử lý */
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wireframe-block centered-block"></header>
+
+    <div class="centered-block">
+      <div class="container">
+        <div class="wireframe-block">
+          <div class="filters-row-wireframe">
+            <div class="filter-placeholder filter-select"></div>
+            <div class="filter-placeholder filter-date-strip">
+              <div class="date-item-placeholder"></div>
+              <div class="date-item-placeholder"></div>
+              <div class="date-item-placeholder"></div>
+              <div class="date-item-placeholder"></div>
+              <div class="date-item-placeholder"></div>
+              <div class="date-item-placeholder"></div>
+            </div>
+            <div class="filter-placeholder filter-chip-group">
+              <div class="chip-placeholder"></div>
+              <div class="chip-placeholder"></div>
+              <div class="chip-placeholder"></div>
+            </div>
+            <div class="filter-placeholder filter-chip-group">
+              <div class="chip-placeholder"></div>
+              <div class="chip-placeholder"></div>
+              <div class="chip-placeholder"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wireframe-block">
+          <div class="line-placeholder title"></div>
+          <div class="line-placeholder subtitle"></div>
+          <div class="movies-list-wireframe">
+            <div class="movie-item-wireframe">
+              <div class="movie-poster-placeholder"></div>
+              <div class="movie-info-placeholder">
+                <div class="line-placeholder title" style="width: 70%"></div>
+                <div class="line-placeholder subtitle" style="width: 50%"></div>
+                <div class="showtimes-placeholder">
+                  <div class="time-btn-placeholder"></div>
+                  <div class="time-btn-placeholder"></div>
+                  <div class="time-btn-placeholder"></div>
+                  <div class="time-btn-placeholder"></div>
+                </div>
+              </div>
+            </div>
+            <div class="movie-item-wireframe">
+              <div class="movie-poster-placeholder"></div>
+              <div class="movie-info-placeholder">
+                <div class="line-placeholder title" style="width: 60%"></div>
+                <div class="line-placeholder subtitle" style="width: 40%"></div>
+                <div class="showtimes-placeholder">
+                  <div class="time-btn-placeholder"></div>
+                  <div class="time-btn-placeholder"></div>
+                  <div class="time-btn-placeholder"></div>
+                  <div class="time-btn-placeholder"></div>
+                </div>
+              </div>
+            </div>
+            <div class="movie-item-wireframe">
+              <div class="movie-poster-placeholder"></div>
+              <div class="movie-info-placeholder">
+                <div class="line-placeholder title" style="width: 80%"></div>
+                <div class="line-placeholder subtitle" style="width: 45%"></div>
+                <div class="showtimes-placeholder">
+                  <div class="time-btn-placeholder"></div>
+                  <div class="time-btn-placeholder"></div>
+                  <div class="time-btn-placeholder"></div>
+                  <div class="time-btn-placeholder"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="wireframe-block centered-block"></footer>
+  </body>
+</html>

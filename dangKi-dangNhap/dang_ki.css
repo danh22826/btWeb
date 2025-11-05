@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 🎨 Lấy nền tối từ menu.css */
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.login-form {
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    /* 🎨 Màu nền form tối hơn */
+    background: #2a2a2a;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-out;
+    border: 1px solid #0073cf;
+}
+
+.form-heading {
+    text-align: center;
+    /* 🎨 Màu chữ trắng */
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group .label {
+    /* 🎨 Di chuyển label lên trên */
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    font-size: 14px;
+    /* 🎨 Màu xanh từ menu.css */
+    color: #0073cf;
+    font-weight: 600;
+    background: #2a2a2a;
+    padding: 0 5px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    /* 🎨 Chữ trắng, nền tối */
+    color: #fff;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    /* 💡 Thêm để padding không làm vỡ layout */
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    /* 🎨 Màu xanh khi focus */
+    border-color: #0073cf;
+    box-shadow: 0 0 10px rgba(0, 115, 207, 0.5);
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.forgot-password a {
+    font-size: 14px;
+    color: #00aaff;
+    text-decoration: none;
+    transition: color 0.5s ease;
+}
+
+.forgot-password a:hover {
+    color: #0073cf;
+    text-decoration: underline;
+}
+
+.submit {
+    width: 100%;
+    padding: 15px;
+    /* 🎨 Nút màu xanh từ menu.css */
+    background-color: #0073cf;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.submit:hover {
+    /* 🎨 Hover sáng hơn */
+    background-color: #00aaff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 115, 207, 0.3);
+}
+
+.signup-link {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.signup-link a {
+    color: #00aaff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.5s ease;
+}
+
+.signup-link a:hover {
+    color: #0073cf;
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

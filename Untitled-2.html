@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframe - Đặt Vé (Căn Giữa)</title>
+
+    <style>
+      /* =================================== */
+      /* CSS CHUNG */
+      /* =================================== */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        /* Thêm padding trên/dưới để dễ nhìn */
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      /* Khối căn giữa */
+      .centered-block {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 15px; /* Giữ padding */
+      }
+
+      .container {
+        /* container giờ chỉ là wrapper logic */
+      }
+
+      /* Khối wireframe chung */
+      .wireframe-block {
+        border: 2px dashed #999;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f0f0f0;
+        box-sizing: border-box;
+        min-height: 100px; /* Chiều cao tối thiểu cho các khối */
+      }
+
+      /* Lưới phim */
+      .movie-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+        padding: 0;
+      }
+
+      /* Ô phim */
+      .wireframe-movie-box {
+        border: 1px solid #ccc;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        height: 250px;
+      }
+
+      /* Ô trống poster */
+      .poster-placeholder {
+        width: 100%;
+        height: 100%;
+        background-color: #c0c0c0;
+      }
+
+      /* Footer */
+      footer.wireframe-block {
+        margin-top: 0; /* Bỏ margin top vì .centered-block đã có */
+        margin-bottom: 0;
+        background-color: #ddd;
+        min-height: 100px;
+      }
+
+      /* =================================== */
+      /* CSS TRANG ĐẶT VÉ (ĐÃ ĐỔI MÀU) */
+      /* =================================== */
+
+      /* Thanh tiến trình 3 bước */
+      .booking-steps-wireframe {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 25px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 15px;
+      }
+
+      .step-wireframe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .step-wireframe .step-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #ccc;
+        margin-bottom: 5px;
+      }
+      .step-wireframe.active .step-icon {
+        background-color: #999;
+      }
+
+      /* Div trống cho text của step */
+      .step-text-placeholder {
+        width: 100px;
+        height: 15px;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+      }
+      .step-wireframe.active .step-text-placeholder {
+        background-color: #d0d0d0;
+      }
+
+      /* Khối cho các form */
+      .form-group-wireframe {
+        border: 1px solid #ccc;
+        background: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        min-height: 50px;
+      }
+
+      /* Khối cho bảng giá, tóm tắt */
+      .summary-table-wireframe {
+        border: 1px solid #ccc;
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        min-height: 100px;
+      }
+
+      /* Khối cho chọn ghế */
+      .seat-map-wireframe {
+        text-align: center;
+      }
+      .screen-wireframe {
+        background-color: #444;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 0 auto 25px auto;
+        width: 80%;
+        min-height: 25px;
+      }
+      .seats-grid-wireframe {
+        border: 2px dashed #aaa;
+        background: #e0e0e0;
+        padding: 20px;
+        margin-bottom: 20px;
+        min-height: 150px;
+      }
+      .legend-wireframe {
+        border: 1px solid #ccc;
+        background: #fff;
+        padding: 15px;
+        min-height: 40px;
+      }
+
+      /* Khối cho thanh toán */
+      .payment-options-wireframe {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .payment-option-box {
+        border: 1px solid #ccc;
+        background: #fff;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px;
+        min-height: 50px;
+      }
+
+      /* Khối cho các nút điều hướng */
+      .nav-buttons-wireframe {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+      .btn-wireframe {
+        border: 1px solid #555;
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+        background: #e9e9e9;
+      }
+      .btn-wireframe.next {
+        background: #999;
+        border-color: #999;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="wireframe-block centered-block"
+      style="text-align: center; min-height: 80px"
+    ></header>
+
+    <div class="centered-block">
+      <div class="container">
+        <div class="booking-steps-wireframe">
+          <div class="step-wireframe active">
+            <div class="step-icon"></div>
+            <div class="step-text-placeholder"></div>
+          </div>
+          <div class="step-wireframe">
+            <div class="step-icon"></div>
+            <div class="step-text-placeholder"></div>
+          </div>
+          <div class="step-wireframe">
+            <div class="step-icon"></div>
+            <div class="step-text-placeholder"></div>
+          </div>
+        </div>
+
+        <div class="wireframe-block" id="wireframe-step1">
+          <div class="form-group-wireframe"></div>
+          <div class="form-group-wireframe"></div>
+
+          <div class="movie-grid">
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+            <div class="wireframe-movie-box">
+              <div class="poster-placeholder"></div>
+            </div>
+          </div>
+
+          <div class="summary-table-wireframe"></div>
+
+          <div class="nav-buttons-wireframe">
+            <div class="btn-wireframe" style="background: #aaa"></div>
+            <div class="btn-wireframe next"></div>
+          </div>
+        </div>
+
+        <div class="wireframe-block" id="wireframe-step2">
+          <div class="seat-map-wireframe">
+            <div class="screen-wireframe"></div>
+            <div class="seats-grid-wireframe"></div>
+            <div class="legend-wireframe"></div>
+          </div>
+          <div class="nav-buttons-wireframe">
+            <div class="btn-wireframe"></div>
+            <div class="btn-wireframe next"></div>
+          </div>
+        </div>
+
+        <div class="wireframe-block" id="wireframe-step3">
+          <div class="summary-table-wireframe"></div>
+          <div class="payment-options-wireframe">
+            <div class="payment-option-box"></div>
+            <div class="payment-option-box"></div>
+            <div class="payment-option-box"></div>
+            <div class="payment-option-box"></div>
+          </div>
+          <div class="nav-buttons-wireframe">
+            <div class="btn-wireframe"></div>
+            <div class="btn-wireframe next"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="wireframe-block centered-block"></footer>
+  </body>
+</html>

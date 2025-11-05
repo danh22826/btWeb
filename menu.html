@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTC cinema</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="menu.css" />
+  </head>
+
+  <body>
+    <header class="container-fluid p-0">
+      <div class="top-bar">
+        <div class="header-right">
+          <a href="/dangKi-dangNhap/dang_nhap.html">Đăng nhập</a>
+          <span>|</span>
+          <a href="/dangKi-dangNhap/dang_ki.html">Đăng ký</a>
+        </div>
+
+        <div class="header-left container d-flex align-items-center py-2">
+          <div class="d-flex align-items-center gap-3">
+            <a href="menu.html">
+              <img
+                id="logo"
+                src="/New folder/utc-removebg-preview.png"
+                alt="logo"
+              />
+            </a>
+            <span class="cinema-name">UTC cinema</span>
+          </div>
+
+          <div class="menu-bar">
+            <nav class="menu d-flex align-items-center gap-3">
+              <a href="/menu.html"><i class="fas fa-home"></i> Trang chủ</a>
+              <a href="/gia_ve/giave.html"><i class="fas fa-ticket-alt"></i> Giá vé</a>
+              <a href="/khuyen_mai/khuyen_mai_page.html"><i class="fas fa-gift"></i> Ưu đãi</a>
+              <a href="/lienHe/lien_he.html"><i class="fas fa-star"></i> Liên hệ</a>
+              <a href="/dangKi-dangNhap/dang_ki.html"><i class="fas fa-user"></i> Thành viên</a>
+              <a href="/schedule.html"
+                ><i class="fas fa-calendar-alt"></i> Lịch chiếu</a
+              >
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="home swiper" id="home">
+      <h2 class="heading">Phim nổi bật</h2>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="movie-card">
+            <div class="card-poster">
+              <img src="/New folder/conan.jpg" alt="Poster" />
+              <div class="button-group">
+                <a href="/movieDetail/detailConan.html" class="detail-btn"
+                  >XEM CHI TIẾT</a
+                >
+                <button class="buy-btn">MUA VÉ</button>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>THÁM TỬ LỪNG DANH CONAN</h3>
+              <p>Conan: Thám tử skibidi</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="movie-card">
+            <div class="card-poster">
+              <img src="/New folder/grandma.jpg" alt="Poster" />
+              <div class="button-group">
+                <a href="/movieDetail/detailGrandma.html" class="detail-btn"
+                  >XEM CHI TIẾT</a
+                >
+                <button class="buy-btn">MUA VÉ</button>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>CỤC VÀNG CỦA BÀ</h3>
+              <p>Phim gia đình</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="movie-card">
+            <div class="card-poster">
+              <img src="/New folder/caima.jpg" alt="Poster" />
+              <div class="button-group">
+                <a href="/movieDetail/thientuong.html" class="detail-btn"
+                  >XEM CHI TIẾT</a
+                >
+                <button class="buy-btn">MUA VÉ</button>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>CẢI MÃ</h3>
+              <p>Phim kinh dị</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="movie-card">
+            <div class="card-poster">
+              <img src="/New folder/thaymuc.jpg" alt="Poster" />
+              <div class="button-group">
+                <a href="/movieDetail/detailMucsu.html" class="detail-btn"
+                  >XEM CHI TIẾT</a
+                >
+                <button class="buy-btn">MUA VÉ</button>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>MỤC SƯ, THẦY ĐỒ VÀ CON QUỶ ÂM TRÌ</h3>
+              <p>Phim kinh dị</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="movie-card">
+            <div class="card-poster">
+              <img src="/New folder/sky.jpg" alt="Poster" />
+              <div class="button-group">
+                <a href="/movieDetail/detailSky.html" class="detail-btn"
+                  >XEM CHI TIẾT</a
+                >
+                <button class="buy-btn">MUA VÉ</button>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>TỬ CHIẾN TRÊN KHÔNG</h3>
+              <p>Phim:Hành Động, Hồi hộp</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="movie-card">
+            <div class="card-poster">
+              <img src="/New folder/btt.jpg" alt="Poster" />
+              <div class="button-group">
+                <a href="/movieDetail/detailbtt.html" class="detail-btn"
+                  >XEM CHI TIẾT</a
+                >
+                <button class="buy-btn">MUA VÉ</button>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>NHẤT NIỆM VĨNH HẰNG</h3>
+              <p>Phim kungfu,hài hước</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="movie-card">
+            <div class="card-poster">
+              <img src="/New folder/onepunch.jpg" alt="Poster" />
+              <div class="button-group">
+                <a href="/movieDetail/detailone.html" class="detail-btn"
+                  >XEM CHI TIẾT</a
+                >
+                <button class="buy-btn">MUA VÉ</button>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>One PUNCH MAN</h3>
+              <p>Phim hài hước,hành động</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="movie-card">
+            <div class="card-poster">
+              <img src="/New folder/VN.jpg" alt="Poster" />
+              <div class="button-group">
+                <a href="/movieDetail/detailVN.html" class="detail-btn"
+                  >XEM CHI TIẾT</a
+                >
+                <button class="buy-btn">MUA VÉ</button>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>TỔ QUỐC TRONG TIM: THE CONCERT FILM</h3>
+              <p>Phim hòa nhạc,tài liệu</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="movie-card">
+            <div class="card-poster">
+              <img src="/New folder/ma.jpg" alt="Poster" />
+              <div class="button-group">
+                <a href="/movieDetail/ma.html" class="detail-btn"
+                  >XEM CHI TIẾT</a
+                >
+                <button class="buy-btn">MUA VÉ</button>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>NHÀ MA XÓ</h3>
+              <p>Thể loại Kinh dị</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="movie-card">
+            <div class="card-poster">
+              <img src="New folder/lotm.jpg" alt="Poster" />
+              <div class="button-group">
+                <a href="/movieDetail/detail1.html" class="detail-btn"
+                  >XEM CHI TIẾT</a
+                >
+                <button class="buy-btn">MUA VÉ</button>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>LORD OF MYSTERIES</h3>
+              <p>Hành động, Huyền Ảo, Sigma</p>
+            </div>
+          </div>
+        </div>
+
+      
+
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </section>
+
+    <section class="movies" id="movies">
+      <h2 class="heading">Phim đang chiếu</h2>
+      <div class="movie-container">
+        <div class="box">
+          <div class="box-img">
+            <img src="/New folder/conan.jpg" alt="Poster" />
+            <div class="button-group">
+              <a href="/movieDetail/detailConan.html" class="detail-btn"
+                >XEM CHI TIẾT</a
+              >
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Thám Tử Lừng Danh Conan</h3>
+            <span> 120 phút <br />Hoạt hình, Bí ẩn </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="/New folder/grandma.jpg" alt="Poster" />
+            <div class="button-group">
+              <a href="/movieDetail/detailGrandma.html" class="detail-btn"
+                >XEM CHI TIẾT</a
+              >
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Cục vàng của bà</h3>
+            <span> 90 phút <br />Gia đình, Hài hước </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="/New folder/caima.jpg" alt="Poster" />
+            <div class="button-group">
+              <a href="/movieDetail/thientuong.html" class="detail-btn"
+                >XEM CHI TIẾT</a
+              >
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Cải mã</h3>
+            <span> 110 phút <br />Kinh dị, Hồi hộp </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="/New folder/thaymuc.jpg" alt="Poster" />
+            <div class="button-group">
+              <a href="/movieDetail/detailMucsu.html" class="detail-btn"
+                >XEM CHI TIẾT</a
+              >
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>MỤC SƯ, THẦY ĐỒ VÀ CON QUỶ ÂM TRÌ</h3>
+            <span> 130 phút <br />Kinh dị </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="/New folder/sky.jpg" alt="Poster" />
+            <div class="button-group">
+              <a href="/movieDetail/detailSky.html" class="detail-btn"
+                >XEM CHI TIẾT</a
+              >
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Tử chiến trên không</h3>
+            <span> 125 phút <br />Hành động, Hồi hộp </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="/New folder/btt.jpg" alt="Poster" />
+            <div class="button-group">
+              <a href="/movieDetail/detailbtt.html" class="detail-btn"
+                >XEM CHI TIẾT</a
+              >
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Nhất niệm vĩnh hằng</h3>
+            <span> 105 phút <br />Kungfu, Hài hước </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="/New folder/onepunch.jpg" alt="Poster" />
+            <div class="button-group">
+              <a href="/movieDetail/detailone.html" class="detail-btn"
+                >XEM CHI TIẾT</a
+              >
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>One Punch Man</h3>
+            <span> 100 phút <br />Hài hước, Hành động </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="/New folder/VN.jpg" alt="Poster" />
+            <div class="button-group">
+              <a href="/movieDetail/detailVN.html" class="detail-btn"
+                >XEM CHI TIẾT</a
+              >
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>TỔ QUỐC TRONG TIM: THE CONCERT FILM</h3>
+            <span> 95 phút <br />Hòa nhạc, Tài liệu </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="/New folder/ma.jpg" alt="Poster" />
+            <div class="button-group">
+              <a href="/movieDetail/ma.html" class="detail-btn">XEM CHI TIẾT</a>
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>NHÀ MA XÓ</h3>
+            <span> 108 phút <br />Kinh dị </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="New folder/lotm.jpg" alt="movie poster" />
+            <div class="button-group">
+              <a href="/movieDetail/detail1.html" class="detail-btn"
+                >XEM CHI TIẾT</a
+              >
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Lord of Mysteries</h3>
+            <span> 120 phút <br />Hành động, Huyền Ảo, Sigma </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="/New folder/BM.jpg" alt="movie poster" />
+            <div class="button-group">
+              <a href="/movieDetail/ma.html" class="detail-btn">XEM CHI TIẾT</a>
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>BÍ MẬT SAU BỮA TIỆC
+</h3>
+            <span> 120 phút <br />Hành động,Hồi hộp </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="New folder/dt.jpg" alt="movie poster" />
+            <div class="button-group">
+              <a href="/movieDetail/detaildt.html" class="detail-btn">XEM CHI TIẾT</a>
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>ĐIỆN THOẠI ĐEN 2
+</h3>
+            <span> 120 phút <br />Hành động, Huyền Ảo, Kinh dị </span>
+          </div>
+        </div>
+
+        
+        <div class="box">
+          <div class="box-img">
+            <img src="New folder/jjk.jpg" alt="movie poster" />
+            <div class="button-group">
+              <a href="/movieDetail/detailJjk.html" class="detail-btn">XEM CHI TIẾT</a>
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>CHÚ THUẬT HỒI CHIẾN: THE MOVIE</h3>
+            <span> 120 phút <br />Hành động, Huyền Ảo, Sigma </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="New folder/chainsaw.jpg" alt="movie poster" />
+            <div class="button-group">
+              <a href="/movieDetail/chainsaw.html" class="detail-btn">XEM CHI TIẾT</a>
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>CHAINSAW MAN - THE MOVIE: CHƯƠNG REZE</h3>
+            <span> 120 phút <br />Hành động, Huyền Ảo, Kinh Dị </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="New folder/final.jpg" alt="movie poster" />
+            <div class="button-group">
+              <a href="/movieDetail/de3.html" class="detail-btn">XEM CHI TIẾT</a>
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>TRẬN CHIẾN SAU TRẬN CHIẾN</h3>
+            <span> 120 phút<br />Tình cảm, Huyền Ảo </span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-img">
+            <img src="New folder/wind.jpg" alt="movie poster" />
+            <div class="button-group">
+              <a href="/movieDetail/ma.html" class="detail-btn">XEM CHI TIẾT</a>
+              <button class="buy-btn">MUA VÉ</button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>GIÓ VẪN THỔI</h3>
+            <span> 120 phút<br />Tình cảm, Huyền Ảo </span>
+          </div>
+        </div>
+      </div>
+
+      
+      
+    </section>
+
+    <section class="upcoming-movies" id="upcoming-movies">
+      <h2 class="heading">Phim sắp chiếu</h2>
+      <div class="movie-container">
+        <section class="home swiper" id="home">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="movie-card">
+                <div class="card-poster">
+                  <img src="/New folder/godzilla.jpg" alt="Poster" />
+                  <div class="button-group">
+              <a href="/movieDetail/de1.html" class="detail-btn">XEM CHI TIẾT</a>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <h3>GODZILLA MINUS ONE</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="movie-card">
+                <div class="card-poster">
+                  <img src="/New folder/zooTopia.jpg" alt="Poster" />
+                  <div class="button-group">
+                    <a href="/movieDetail/de.html" class="detail-btn">XEM CHI TIẾT</a>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <h3>PHI VỤ ĐỘNG TRỜI 2</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="movie-card">
+                <div class="card-poster">
+                  <img src="/New folder/spongbob.jpg" alt="Poster" />
+                  <div class="button-group">
+                    <a href="/movieDetail/de.html" class="detail-btn">XEM CHI TIẾT</a>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <h3>SPONGEBOB: LỜI NGUYỀN HẢI TẶC</h3>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="movie-card">
+                <div class="card-poster">
+                  <img src="/New folder/final.jpg" alt="Poster" />
+                  <div class="button-group">
+                    <a href="/movieDetail/de3.html" class="detail-btn">XEM CHI TIẾT</a>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <h3>Thám Tử Lừng Danh Conan</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="movie-card">
+                <div class="card-poster">
+                  <img src="/New folder/wicked.jpg" alt="Poster" />
+                  <div class="button-group">
+                    <a href="/movieDetail/de4.html" class="detail-btn">XEM CHI TIẾT</a>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <h3>WICKED: PHẦN 2</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="movie-card">
+                <div class="card-poster">
+                  <img src="/New folder/sisor.jpg" alt="Poster" />
+                  <div class="button-group">
+                    <a href="/movieDetail/de5.html" class="detail-btn">XEM CHI TIẾT</a>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <h3>SÁT THỦ LƯỠI KÉO</h3>
+                </div>
+              </div>
+            </div>
+
+              <div class="swiper-slide">
+              <div class="movie-card">
+                <div class="card-poster">
+                  <img src="/New folder/6hanh.jpg" alt="Poster" />
+                  <div class="button-group">
+                    <a href="/movieDetail/de6.html" class="detail-btn">XEM CHI TIẾT</a>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <h3>VỤ SƠN NGŨ HÀNH</h3>
+                </div>
+              </div>
+            </div>
+
+            
+
+            
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <div class="footer-infor">
+        <p>Đia chỉ:Số 3 Cầu giấy</p>
+        <p>Liên hệ:123456789</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 UTC Cinema. All Rights Reserved.</p>
+        <p>Created by <strong>UTC students</strong></p>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="swipt.js"></script>
+    <script src="menu.js"></script>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
+

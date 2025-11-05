@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký - UTC Cinema</title>
+    <link rel="stylesheet" href="dang_ki.css">
+</head>
+
+<body>
+    <form class="login-form">
+        <div class="form-heading">Đăng Ký</div>
+
+        <div class="input-group">
+            <label class="label" for="name">Tên<span style="color:red">*</span></label>
+            <input required="" placeholder="Nhập họ và tên" name="name" id="name" type="text">
+        </div>
+
+        <div class="input-group">
+            <label class="label" for="email">Email<span style="color:red">*</span></label>
+            <input required="" placeholder="Nhập email" name="email" id="email" type="email">
+        </div>
+
+        <div class="input-group">
+            <label class="label" for="sdt">Số điện thoại <span style="color:red">*</span></label>
+            <input required="" placeholder="Nhập số điện thoại" name="sdt" id="sdt" type="text">
+        </div>
+
+        <div class="input-group">
+            <label class="label" for="password">Password<span style="color:red">*</span></label>
+            <input required="" placeholder="Nhập mật khẩu" type="password" name="password" id="password">
+        </div>
+
+        <div class="input-group">
+            <label class="label" for="ngay_sinh">Ngày sinh <span style="color:red">*</span></label>
+            <input required type="date" id="ngay_sinh" name="ngay_sinh">
+        </div>
+
+        <div class="input-group">
+            <label class="label" for="khu_vuc">Khu vực <span style="color:red">*</span></label>
+            <select required id="khu_vuc" name="khu_vuc">
+                <option value="">-- Chọn khu vực --</option>
+                <option value="Hà Nội">Hà Nội</option>
+                <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label class="label" for="rap_yeu_thich">Rạp yêu thích <span style="color:red">*</span></label>
+            <select required id="rap_yeu_thich" name="rap_yeu_thich">
+                <option value="">-- Chọn rạp --</option>
+                <option value="CGV">CGV</option>
+                <option value="Lotte">Lotte</option>
+                <option value="Galaxy">Galaxy</option>
+            </select>
+        </div>
+
+        <button class="submit" type="submit" id="dang_ki">
+            Đăng kí
+        </button>
+
+        <div class="signup-link">Đã có tài khoản?
+            <a href="dang_nhap.html">Đăng nhập</a>
+        </div>
+
+    </form>
+
+    <script src="dang_ki.js"></script>
+</body>
+
+</html>

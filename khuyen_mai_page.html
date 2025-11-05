@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khuyến Mãi - UTC Cinema</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="khuyen_mai.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-right">
+        <a href="/dangKi-dangNhap/dang_nhap.html">Đăng nhập</a>
+        <span style="color: white">|</span>
+        <a href="/dangKi-dangNhap/dang_ki.html">Đăng ký</a>
+      </div>
+      <div class="header-left container d-flex align-items-center">
+        <a href="menu.html">
+          <img src="/New folder/utc-removebg-preview.png" alt="logo" />
+        </a>
+        <span class="cinema-name">UTC Cinema</span>
+        <nav class="menu d-flex ms-auto gap-3">
+          <a href="/menu.html"><i class="fas fa-home"></i> Trang chủ</a>
+          <a href="/gia_ve/giave.html"
+            ><i class="fas fa-ticket-alt"></i> Giá vé</a
+          >
+          <a href="/khuyen_mai/khuyen_mai_page.html"
+            ><i class="fas fa-gift"></i> Ưu đãi</a
+          >
+          <a href="/lienHe/lien_he.html"><i class="fas fa-star"></i> Liên hệ</a>
+          <a href="/dangKi-dangNhap/dang_ki.html"
+            ><i class="fas fa-user"></i> Thành viên</a
+          >
+          <a href="/schedule.html"
+            ><i class="fas fa-calendar-alt"></i> Lịch chiếu</a
+          >>
+        </nav>
+      </div>
+    </header>
+
+    <div class="page-header">
+      <h1><i class="fas fa-gift"></i> KHUYẾN MÃI HẤP DẪN</h1>
+      <p>Tận hưởng những ưu đãi đặc biệt chỉ có tại UTC Cinema</p>
+    </div>
+
+    <div class="promo-tabs">
+      <button class="promo-tab active" data-tab="all">
+        <i class="fas fa-star"></i> Tất cả
+      </button>
+      <button class="promo-tab" data-tab="movie">
+        <i class="fas fa-film"></i> Vé phim
+      </button>
+      <button class="promo-tab" data-tab="combo">
+        <i class="fas fa-utensils"></i> Combo đồ ăn
+      </button>
+      <button class="promo-tab" data-tab="member">
+        <i class="fas fa-crown"></i> Thành viên
+      </button>
+    </div>
+
+    <div class="promotions-container">
+      <div class="promo-grid" id="promoGrid">
+        <div class="promo-card" data-category="movie">
+          <div
+            class="promo-banner"
+            style="
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            "
+          >
+            <i class="fas fa-ticket-alt"></i>
+          </div>
+          <div class="promo-discount">-50%</div>
+          <div class="promo-content">
+            <h3 class="promo-title">Giảm 50% Vé Thứ 2</h3>
+            <p class="promo-description">
+              Áp dụng cho tất cả các suất chiếu vào thứ 2 hàng tuần. Đặt vé ngay
+              để không bỏ lỡ!
+            </p>
+            <div class="promo-validity">
+              <i class="fas fa-calendar-check"></i>
+              <span>Có hiệu lực: 01/11/2025 - 31/12/2025</span>
+            </div>
+            <div class="promo-code">
+              <code>MONDAY50</code>
+              <button class="copy-btn" onclick="copyCode('MONDAY50')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-card" data-category="combo">
+          <div
+            class="promo-banner"
+            style="
+              background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            "
+          >
+            <i class="fas fa-hamburger"></i>
+          </div>
+          <div class="promo-discount">-30%</div>
+          <div class="promo-content">
+            <h3 class="promo-title">Combo Bắp Nước Khủng</h3>
+            <p class="promo-description">
+              Giảm 30% cho Combo Bắp Nước cỡ lớn. Thưởng thức phim cùng bạn bè
+              thật trọn vẹn!
+            </p>
+            <div class="promo-validity">
+              <i class="fas fa-calendar-check"></i>
+              <span>Có hiệu lực: Hằng ngày</span>
+            </div>
+            <div class="promo-code">
+              <code>COMBO30</code>
+              <button class="copy-btn" onclick="copyCode('COMBO30')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-card" data-category="member">
+          <div
+            class="promo-banner"
+            style="
+              background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            "
+          >
+            <i class="fas fa-crown"></i>
+          </div>
+          <div class="promo-discount">VIP</div>
+          <div class="promo-content">
+            <h3 class="promo-title">Ưu Đãi Thành Viên VIP</h3>
+            <p class="promo-description">
+              Tích điểm mỗi lần xem phim, đổi quà hấp dẫn. Đăng ký ngay để nhận
+              ưu đãi độc quyền!
+            </p>
+            <div class="promo-validity">
+              <i class="fas fa-calendar-check"></i>
+              <span>Luôn có hiệu lực</span>
+            </div>
+            <div class="promo-code">
+              <code>VIPUTC2025</code>
+              <button class="copy-btn" onclick="copyCode('VIPUTC2025')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-card" data-category="movie">
+          <div
+            class="promo-banner"
+            style="
+              background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            "
+          >
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="promo-discount">2+1</div>
+          <div class="promo-content">
+            <h3 class="promo-title">Mua 2 Tặng 1 - Đi Đông Vui Hơn</h3>
+            <p class="promo-description">
+              Mua 2 vé tặng 1 vé miễn phí cho suất chiếu cuối tuần. Rủ hội bạn
+              thân đi xem liền!
+            </p>
+            <div class="promo-validity">
+              <i class="fas fa-calendar-check"></i>
+              <span>Thứ 7 & Chủ nhật</span>
+            </div>
+            <div class="promo-code">
+              <code>WEEKEND21</code>
+              <button class="copy-btn" onclick="copyCode('WEEKEND21')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-card" data-category="combo">
+          <div
+            class="promo-banner"
+            style="
+              background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            "
+          >
+            <i class="fas fa-ice-cream"></i>
+          </div>
+          <div class="promo-discount">-20%</div>
+          <div class="promo-content">
+            <h3 class="promo-title">Kem Mát Lạnh Giảm 20%</h3>
+            <p class="promo-description">
+              Thưởng thức kem trong rạp với giá ưu đãi. Áp dụng cho tất cả các
+              loại kem.
+            </p>
+            <div class="promo-validity">
+              <i class="fas fa-calendar-check"></i>
+              <span>Mùa hè 2025</span>
+            </div>
+            <div class="promo-code">
+              <code>ICECREAM20</code>
+              <button class="copy-btn" onclick="copyCode('ICECREAM20')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-card" data-category="movie">
+          <div
+            class="promo-banner"
+            style="
+              background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            "
+          >
+            <i class="fas fa-birthday-cake"></i>
+          </div>
+          <div class="promo-discount">FREE</div>
+          <div class="promo-content">
+            <h3 class="promo-title">Sinh Nhật Vui Vẻ - Vé Miễn Phí</h3>
+            <p class="promo-description">
+              Tặng 1 vé miễn phí trong tháng sinh nhật của bạn. Xuất trình CCCD
+              khi mua vé.
+            </p>
+            <div class="promo-validity">
+              <i class="fas fa-calendar-check"></i>
+              <span>Trong tháng sinh nhật</span>
+            </div>
+            <div class="promo-code">
+              <code>BIRTHDAY2025</code>
+              <button class="copy-btn" onclick="copyCode('BIRTHDAY2025')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="special-offers">
+      <h2><i class="fas fa-sparkles"></i> Ưu Đãi Đặc Biệt</h2>
+      <div class="offer-carousel">
+        <div class="offer-card">
+          <div class="offer-icon">🎁</div>
+          <h3>Tích Điểm Đổi Quà</h3>
+          <p>Mỗi 100.000đ = 10 điểm. Đổi quà hấp dẫn!</p>
+        </div>
+        <div class="offer-card">
+          <div class="offer-icon">💳</div>
+          <h3>Thanh Toán Thẻ</h3>
+          <p>Giảm 10% khi thanh toán bằng thẻ ngân hàng</p>
+        </div>
+        <div class="offer-card">
+          <div class="offer-icon">📱</div>
+          <h3>App UTC Cinema</h3>
+          <p>Tải app nhận ngay voucher 50.000đ</p>
+        </div>
+        <div class="offer-card">
+          <div class="offer-icon">👥</div>
+          <h3>Giới Thiệu Bạn Bè</h3>
+          <p>Mời bạn xem phim, cả 2 được giảm 20%</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2025 UTC Cinema. All Rights Reserved.</p>
+      <p>Created by <strong>MẠNH DŨNG</strong></p>
+    </footer>
+
+    <script src="khuyen_mai.js"></script>
+  </body>
+</html>
