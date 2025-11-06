@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Thông báo và tải lại trang (hoặc chuyển về trang đăng nhập)
         alert("Đã đăng xuất.");
-        window.location.href = "../dang_nhap.html";
+        window.location.href = "menu.html";
       });
     }
   }
