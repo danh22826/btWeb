@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Lấy các phần tử cần thiết
-
   const allBuyButtons = document.querySelectorAll(".buy-btn");
   const ticketPageURL = "/gia_ve/giave.html"; // Đường dẫn tới trang giá vé
 
@@ -12,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// logic dang nhap dang ki
 document.addEventListener("DOMContentLoaded", () => {
   // Kiểm tra xem người dùng đã đăng nhập hay chưa
   const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));

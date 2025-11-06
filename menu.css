@@ -297,7 +297,7 @@ header * {
 
 .box .box-img {
   width: 100%;
-  /* 🚨 KHẮC PHỤC LỖI KÍCH THƯỚC: Ép ảnh theo tỷ lệ 2:3 chuẩn */
+  /* KHẮC PHỤC LỖI KÍCH THƯỚC: Ép ảnh theo tỷ lệ 2:3 chuẩn */
   aspect-ratio: 2 / 3;
   height: auto;
   overflow: hidden;
