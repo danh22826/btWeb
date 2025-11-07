@@ -249,7 +249,9 @@ header * {
   background: #1a1a1a;
   color: #bbb;
 }
-
+.menu-bar {
+  margin-left: auto;
+}
 .footer .social {
   font-size: 40px;
   display: flex;

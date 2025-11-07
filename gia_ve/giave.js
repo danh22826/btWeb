@@ -1,143 +1,246 @@
+// ========================
+// GIAVE.JS - XỬ LÝ ĐẶT VÉ (FIXED VERSION)
+// ========================
+
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("=== BẮT ĐẦU DEBUG ===");
+
+  // === DỮ LIỆU ĐẶT VÉ ===
   let bookingData = {
     movie: null,
-    date: "today",
-    time: "18:00",
+    movieTitle: "",
+    date: "",
+    time: "",
     seats: [],
     paymentMethod: null,
   };
 
+  // === GIÁ VÉ ===
   const PRICES = {
     normal: 80000,
     vip: 120000,
     family: 300000,
   };
 
+  // === LỊCH CHIẾU PHIM - ĐỊNH DẠNG DD/MM/YYYY ===
+  const movieSchedule = {
+    "01/11/2025": ["conan", "caima", "nha-ma-xo"],
+    "02/11/2025": [
+      "chu-thuat-hoi-chien-the-movie",
+      "chainsaw-man-chuong-reze",
+      "gio-van-thoi",
+    ],
+    "03/11/2025": ["lord", "one-punch-man", "tu-chien-tren-khong"],
+    "04/11/2025": ["grandma", "bi-mat-sau-bua-tiec", "dien-thoai-den-2"],
+    "05/11/2025": [
+      "muc-su-thay-do-va-con-quy-am-tri",
+      "to-quoc-trong-tim-the-concert-film",
+      "nhat-niem-vinh-hang",
+    ],
+    "06/11/2025": ["conan", "lord", "grandma", "caima"],
+    "07/11/2025": [
+      "muc-su-thay-do-va-con-quy-am-tri",
+      "tu-chien-tren-khong",
+      "one-punch-man",
+    ],
+    "08/11/2025": ["nhat-niem-vinh-hang", "nha-ma-xo", "bi-mat-sau-bua-tiec"],
+    "09/11/2025": [
+      "dien-thoai-den-2",
+      "chu-thuat-hoi-chien-the-movie",
+      "chainsaw-man-chuong-reze",
+    ],
+    "10/11/2025": [
+      "gio-van-thoi",
+      "to-quoc-trong-tim-the-concert-film",
+      "conan",
+    ],
+  };
+
+  console.log("Lịch chiếu:", movieSchedule);
+
+  // === CÁC PHẦN TỬ DOM ===
   const steps = document.querySelectorAll(".step");
   const stepContents = document.querySelectorAll(".step-content");
   const movieOptions = document.querySelectorAll(".movie-option");
   const seats = document.querySelectorAll(".seat.available");
   const paymentMethods = document.querySelectorAll(".payment-method");
+  const datePicker = document.getElementById("date-picker");
+  const timeSelect = document.getElementById("time-select");
 
-  function updateMoviesByDate(date) {
-    const moviesToday = movieSchedule[date] || [];
+  console.log("Tìm thấy", movieOptions.length, "phim trong DOM");
+  console.log("Date picker:", datePicker);
+  console.log("Time select:", timeSelect);
 
+  // === HÀM CHUYỂN ĐỔI ĐỊNH DẠNG NGÀY ===
+  function formatDateToDDMMYYYY(dateString) {
+    // Chuyển từ YYYY-MM-DD sang DD/MM/YYYY
+    const [year, month, day] = dateString.split("-");
+    return `${day}/${month}/${year}`;
+  }
+
+  // === KHỞI TẠO NGÀY HÔM NAY ===
+  const today = new Date();
+  const todayString = today.toISOString().split("T")[0]; // YYYY-MM-DD
+  datePicker.value = todayString;
+  // datePicker.min = todayString;
+  bookingData.date = todayString;
+  bookingData.time = timeSelect.value;
+
+  console.log("Ngày hôm nay:", todayString);
+  console.log("Định dạng DD/MM/YYYY:", formatDateToDDMMYYYY(todayString));
+
+  // === BƯỚC 1: CHỌN PHIM VÀ SUẤT CHIẾU ===
+
+  // Cập nhật danh sách phim theo ngày
+  function updateMoviesByDate(dateYYYYMMDD) {
+    console.log("=== CẬP NHẬT PHIM THEO NGÀY:", dateYYYYMMDD, "===");
+
+    // Chuyển đổi sang định dạng DD/MM/YYYY
+    const dateDDMMYYYY = formatDateToDDMMYYYY(dateYYYYMMDD);
+    console.log("Định dạng DD/MM/YYYY:", dateDDMMYYYY);
+
+    const moviesToday = movieSchedule[dateDDMMYYYY] || [];
+
+    console.log("Phim có trong ngày này:", moviesToday);
+
+    let visibleCount = 0;
     movieOptions.forEach((option) => {
       const movieId = option.getAttribute("data-movie");
+      const movieName = option.querySelector("h3").textContent;
+
       if (moviesToday.includes(movieId)) {
         option.style.display = "block";
+        option.style.opacity = "1";
+        option.style.pointerEvents = "auto";
+        visibleCount++;
+        console.log("✓ HIỂN THỊ:", movieId, "-", movieName);
       } else {
         option.style.display = "none";
+        option.style.opacity = "0.5";
+        option.style.pointerEvents = "none";
+        console.log("✗ ẨN:", movieId, "-", movieName);
       }
     });
 
-    // Nếu không có phim nào
-    if (moviesToday.length === 0) {
-      const container = document.querySelector(".movie-selection");
-      container.innerHTML =
-        "<p style='color:white;text-align:center;'>Không có phim nào được chiếu vào ngày này.</p>";
-    } else {
-      // Xóa thông báo nếu có
-      document
-        .querySelectorAll(".movie-selection p")
-        .forEach((p) => p.remove());
+    console.log("Tổng số phim hiển thị:", visibleCount);
+
+    // Bỏ chọn phim nếu không có trong ngày mới
+    if (bookingData.movie && !moviesToday.includes(bookingData.movie)) {
+      movieOptions.forEach((m) => {
+        m.classList.remove("selected");
+        m.style.backgroundColor = "";
+      });
+      bookingData.movie = null;
+      bookingData.movieTitle = "";
+      console.log("⚠ Đã bỏ chọn phim vì không có trong ngày mới");
     }
   }
 
-  // Khi chọn ngày mới
-  document.getElementById("date-picker").addEventListener("change", (e) => {
-    const selectedDate = e.target.value;
-    updateMoviesByDate(selectedDate);
-  });
-
-  // ==================== LỊCH CHIẾU THẬT ====================
-  const movieSchedule = {
-    "2025-11-01": ["conan", "caima", "nha-ma-xo"],
-    "2025-11-02": [
-      "chu-thuat-hoi-chien-the-movie",
-      "chainsaw-man-chuong-reze",
-      "gio-van-thoi",
-    ],
-    "2025-11-03": ["lord", "one-punch-man", "tu-chien-tren-khong"],
-    "2025-11-04": ["grandma", "bi-mat-sau-bua-tiec", "dien-thoai-den-2"],
-    "2025-11-05": [
-      "muc-su-thay-do-va-con-quy-am-tri",
-      "to-quoc-trong-tim-the-concert-film",
-      "nhat-niem-vinh-hang",
-    ],
-  };
-
-  // ==================== CẬP NHẬT PHIM THEO NGÀY ====================
-  const datePicker = document.getElementById("date-picker");
-  const movieContainer = document.querySelector(".movie-selection");
-
-  function updateMoviesByDate(date) {
-    const moviesToday = movieSchedule[date] || [];
-
-    // Nếu không có phim nào -> hiển thị thông báo
-    if (moviesToday.length === 0) {
-      movieContainer.innerHTML =
-        "<p style='color:white;text-align:center;'>Không có phim nào được chiếu vào ngày này.</p>";
-      return;
-    }
-
-    // Hiển thị lại tất cả phim trước
-    movieContainer.querySelectorAll(".movie-option").forEach((option) => {
-      const movieId = option.getAttribute("data-movie");
-      if (moviesToday.includes(movieId)) {
-        option.style.display = "block";
-      } else {
-        option.style.display = "none";
-      }
-    });
-  }
-
-  // Khi chọn ngày mới
+  // Sự kiện chọn ngày
   datePicker.addEventListener("change", (e) => {
+    console.log("Đã chọn ngày:", e.target.value);
+    bookingData.date = e.target.value;
     updateMoviesByDate(e.target.value);
   });
 
-  // Tự động hiển thị phim hôm nay khi load trang
-  window.addEventListener("load", () => {
-    const today = new Date().toISOString().split("T")[0];
-    datePicker.value = today;
-    updateMoviesByDate(today);
+  // Sự kiện chọn giờ chiếu
+  timeSelect.addEventListener("change", (e) => {
+    console.log("Đã chọn giờ:", e.target.value);
+    bookingData.time = e.target.value;
   });
 
-  document.getElementById("to-step2").addEventListener("click", function () {
-    if (!bookingData.movie) {
-      alert("Vui lòng chọn phim trước khi tiếp tục!");
-      return;
-    }
-
-    changeStep(2);
-  });
-
-  document.getElementById("to-step1").addEventListener("click", function () {
-    changeStep(1);
-  });
-
-  document.getElementById("to-step3").addEventListener("click", function () {
-    if (bookingData.seats.length === 0) {
-      alert("Vui lòng chọn ít nhất một ghế ngồi!");
-      return;
-    }
-
-    updateSummary();
-    changeStep(3);
-  });
-
+  // Sự kiện chọn phim - FIXED VERSION
   movieOptions.forEach((option) => {
     option.addEventListener("click", function () {
-      movieOptions.forEach((m) => m.classList.remove("selected"));
+      console.log("=== CLICK PHIM ===");
+
+      const movieId = this.getAttribute("data-movie");
+      const movieName = this.querySelector("h3").textContent;
+      const selectedDate = bookingData.date;
+      const dateDDMMYYYY = formatDateToDDMMYYYY(selectedDate);
+      const moviesToday = movieSchedule[dateDDMMYYYY] || [];
+
+      console.log("Phim clicked:", movieId, "-", movieName);
+      console.log("Ngày đã chọn:", selectedDate, "=>", dateDDMMYYYY);
+      console.log("Phim có trong ngày:", moviesToday);
+      console.log("Phim này có được chiếu?", moviesToday.includes(movieId));
+
+      // Kiểm tra xem phim có đang hiển thị không
+      if (
+        this.style.display === "none" ||
+        this.style.pointerEvents === "none"
+      ) {
+        console.log("⌛ PHIM ĐANG BỊ ẨN - KHÔNG THỂ CHỌN");
+        alert("Phim này không được chiếu vào ngày đã chọn!");
+        return;
+      }
+
+      if (!moviesToday.includes(movieId)) {
+        console.log("⌛ PHIM KHÔNG CÓ TRONG LỊCH CHIẾU");
+        alert("Phim này không được chiếu vào ngày đã chọn!");
+        return;
+      }
+
+      // Bỏ chọn tất cả phim khác
+      movieOptions.forEach((m) => {
+        m.classList.remove("selected");
+        m.style.backgroundColor = "";
+        m.style.border = "";
+      });
+
+      // Chọn phim này
       this.classList.add("selected");
-      bookingData.movie = this.getAttribute("data-movie");
+      this.style.backgroundColor = "rgba(0, 115, 207, 0.2)";
+      this.style.border = "3px solid #0073cf";
+      bookingData.movie = movieId;
+      bookingData.movieTitle = movieName;
+
+      console.log(
+        "✅ ĐÃ CHỌN PHIM:",
+        bookingData.movie,
+        "-",
+        bookingData.movieTitle
+      );
+      console.log("Booking data hiện tại:", bookingData);
     });
   });
 
+  // Nút chuyển sang bước 2
+  document.getElementById("to-step2").addEventListener("click", function () {
+    console.log("=== KIỂM TRA CHUYỂN BƯỚC 2 ===");
+    console.log("Booking data:", bookingData);
+
+    if (!bookingData.movie) {
+      alert("Vui lòng chọn phim trước khi tiếp tục!");
+      console.log("⌛ CHƯA CHỌN PHIM");
+      return;
+    }
+    if (!bookingData.date) {
+      alert("Vui lòng chọn ngày chiếu!");
+      console.log("⌛ CHƯA CHỌN NGÀY");
+      return;
+    }
+    if (!bookingData.time) {
+      alert("Vui lòng chọn suất chiếu!");
+      console.log("⌛ CHƯA CHỌN GIỜ");
+      return;
+    }
+
+    console.log("✅ ĐỦ ĐIỀU KIỆN - CHUYỂN BƯỚC 2");
+    changeStep(2);
+  });
+
+  // === KHỞI TẠO BAN ĐẦU ===
+  console.log("=== KHỞI TẠO BAN ĐẦU ===");
+  updateMoviesByDate(todayString);
+
+  // === BƯỚC 2: CHỌN GHẾ ===
   seats.forEach((seat) => {
     seat.addEventListener("click", function () {
-      if (this.classList.contains("occupied")) return;
+      if (this.classList.contains("occupied")) {
+        alert("Ghế này đã được đặt!");
+        return;
+      }
 
       const seatId = this.getAttribute("data-seat");
       const seatType = this.getAttribute("data-type");
@@ -152,14 +255,37 @@ document.addEventListener("DOMContentLoaded", function () {
           type: seatType,
         });
       }
+
+      console.log("Ghế đã chọn:", bookingData.seats);
     });
   });
 
+  document.getElementById("to-step1").addEventListener("click", function () {
+    changeStep(1);
+  });
+
+  document.getElementById("to-step3").addEventListener("click", function () {
+    if (bookingData.seats.length === 0) {
+      alert("Vui lòng chọn ít nhất một ghế ngồi!");
+      return;
+    }
+    updateSummary();
+    changeStep(3);
+  });
+
+  // === BƯỚC 3: THANH TOÁN ===
   paymentMethods.forEach((method) => {
     method.addEventListener("click", function () {
       paymentMethods.forEach((m) => m.classList.remove("selected"));
       this.classList.add("selected");
       bookingData.paymentMethod = this.getAttribute("data-method");
+    });
+  });
+
+  const backToStep2Buttons = document.querySelectorAll("#to-step2");
+  backToStep2Buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      changeStep(2);
     });
   });
 
@@ -171,11 +297,17 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      alert("Đặt vé thành công! Vé đã được gửi đến email của bạn.");
-      resetBooking();
-      changeStep(1);
+      const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+      if (!loggedInUser) {
+        alert("Vui lòng đăng nhập để hoàn tất đặt vé!");
+        window.location.href = "/dangKi-dangNhap/dang_nhap.html";
+        return;
+      }
+
+      processPayment(loggedInUser);
     });
 
+  // === HÀM HỖ TRỢ ===
   function changeStep(stepNumber) {
     steps.forEach((step, index) => {
       if (index < stepNumber - 1) {
@@ -196,28 +328,24 @@ document.addEventListener("DOMContentLoaded", function () {
         content.style.display = "none";
       }
     });
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function updateSummary() {
-    const selectedMovie = document.querySelector(
-      ".movie-option.selected h3"
-    ).textContent;
-    document.getElementById("summary-movie").textContent = selectedMovie;
+    document.getElementById("summary-movie").textContent =
+      bookingData.movieTitle;
 
-    const datePicker = document.getElementById("date-picker");
-    const timeSelect = document.getElementById("time-select");
-
-    const selectedDate = new Date(datePicker.value);
+    const selectedDate = new Date(bookingData.date);
     const formattedDate = selectedDate.toLocaleDateString("vi-VN", {
       day: "2-digit",
       month: "2-digit",
       year: "numeric",
     });
 
-    const timeText = timeSelect.options[timeSelect.selectedIndex].text;
     document.getElementById(
       "summary-time"
-    ).textContent = `${formattedDate} - ${timeText}`;
+    ).textContent = `${formattedDate} - ${bookingData.time}`;
 
     const seatIds = bookingData.seats.map((seat) => seat.id);
     document.getElementById("summary-seats").textContent = seatIds.join(", ");
@@ -227,13 +355,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let familyCount = 0;
 
     bookingData.seats.forEach((seat) => {
-      if (seat.type === "normal") {
-        normalCount++;
-      } else if (seat.type === "vip") {
-        vipCount++;
-      } else if (seat.type === "family") {
-        familyCount++;
-      }
+      if (seat.type === "normal") normalCount++;
+      else if (seat.type === "vip") vipCount++;
+      else if (seat.type === "family") familyCount++;
     });
 
     document.getElementById("normal-count").textContent = normalCount;
@@ -244,81 +368,142 @@ document.addEventListener("DOMContentLoaded", function () {
       normalCount * PRICES.normal +
       vipCount * PRICES.vip +
       familyCount * PRICES.family;
+
     document.getElementById("summary-total").textContent =
       total.toLocaleString("vi-VN") + " VNĐ";
+  }
+
+  function processPayment(user) {
+    const bookingCode = "UTC" + Date.now().toString().slice(-8);
+
+    let normalCount = 0;
+    let vipCount = 0;
+    let familyCount = 0;
+
+    bookingData.seats.forEach((seat) => {
+      if (seat.type === "normal") normalCount++;
+      else if (seat.type === "vip") vipCount++;
+      else if (seat.type === "family") familyCount++;
+    });
+
+    const totalPrice =
+      normalCount * PRICES.normal +
+      vipCount * PRICES.vip +
+      familyCount * PRICES.family;
+
+    const booking = {
+      bookingCode,
+      user: user.email,
+      userName: user.name,
+      movie: bookingData.movieTitle,
+      date: bookingData.date,
+      showtime: bookingData.time,
+      seats: bookingData.seats.map((s) => s.id),
+      totalPrice,
+      paymentMethod: bookingData.paymentMethod,
+      bookingDate: new Date().toLocaleString("vi-VN"),
+      status: "Đã thanh toán",
+    };
+
+    const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
+    bookings.push(booking);
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+
+    alert(
+      `🎉 ĐẶT VÉ THÀNH CÔNG! 🎉\n\n` +
+        `Mã đặt vé: ${bookingCode}\n` +
+        `Phim: ${bookingData.movieTitle}\n` +
+        `Ngày: ${bookingData.date}\n` +
+        `Suất chiếu: ${bookingData.time}\n` +
+        `Ghế: ${bookingData.seats.map((s) => s.id).join(", ")}\n` +
+        `Tổng tiền: ${totalPrice.toLocaleString("vi-VN")} VNĐ\n\n` +
+        `Vui lòng đến quầy vé với mã này để nhận vé!`
+    );
+
+    resetBooking();
+    setTimeout(() => {
+      window.location.href = "/menu.html";
+    }, 1000);
   }
 
   function resetBooking() {
     bookingData = {
       movie: null,
-      date: "today",
-      time: "18:00",
+      movieTitle: "",
+      date: todayString,
+      time: timeSelect.value,
       seats: [],
       paymentMethod: null,
     };
 
-    movieOptions.forEach((m) => m.classList.remove("selected"));
+    movieOptions.forEach((m) => {
+      m.classList.remove("selected");
+      m.style.backgroundColor = "";
+      m.style.border = "";
+    });
     seats.forEach((s) => s.classList.remove("selected"));
     paymentMethods.forEach((m) => m.classList.remove("selected"));
+    datePicker.value = todayString;
   }
 
-  document.querySelectorAll(".menu a").forEach((link) => {
-    link.addEventListener("click", function (e) {
-      if (!this.classList.contains("active")) {
-        if (bookingData.seats.length > 0 || bookingData.movie) {
-          const confirmLeave = confirm(
-            "Bạn có chắc muốn rời khỏi trang? Thông tin đặt vé của bạn sẽ bị mất."
-          );
-          if (!confirmLeave) {
-            e.preventDefault();
-            return;
-          }
-        }
-      }
-    });
-  });
-
-  document
-    .querySelector(".search-bar form")
-    .addEventListener("submit", function (e) {
-      if (bookingData.seats.length > 0 || bookingData.movie) {
-        const confirmLeave = confirm(
-          "Bạn có chắc muốn tìm kiếm? Thông tin đặt vé của bạn sẽ bị mất."
-        );
-        if (!confirmLeave) {
-          e.preventDefault();
-        }
-      }
-    });
-});
-document.addEventListener("DOMContentLoaded", () => {
-  // Kiểm tra xem người dùng đã đăng nhập hay chưa
+  // === XỬ LÝ ĐĂNG NHẬP ===
   const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
-
-  // Lấy phần tử header-right
   const headerRight = document.querySelector(".header-right");
 
   if (loggedInUser && headerRight) {
-    // Nếu đã đăng nhập, thay đổi nội dung header
     headerRight.innerHTML = `
-            <a href="#" style="color: yellow;">Xin chào, ${loggedInUser.name}</a>
-            <span>|</span>
-            <a href="#" id="logout-button">Đăng xuất</a>
-        `;
+      <a href="#" style="color: yellow;">Xin chào, ${loggedInUser.name}</a>
+      <span>|</span>
+      <a href="#" id="logout-button">Đăng xuất</a>
+    `;
 
-    // Thêm sự kiện cho nút Đăng xuất
     const logoutButton = document.getElementById("logout-button");
     if (logoutButton) {
       logoutButton.addEventListener("click", (event) => {
-        event.preventDefault(); // Ngăn link tự nhảy
-
-        // Xóa thông tin đăng nhập khỏi sessionStorage
+        event.preventDefault();
         sessionStorage.removeItem("loggedInUser");
-
-        // Thông báo và tải lại trang (hoặc chuyển về trang đăng nhập)
         alert("Đã đăng xuất.");
-        window.location.href = "menu.html";
+        window.location.href = "../menu.html";
       });
     }
+  }
+
+  window.addEventListener("beforeunload", (e) => {
+    if (bookingData.seats.length > 0 || bookingData.movie) {
+      e.preventDefault();
+      e.returnValue = "";
+    }
+  });
+
+  console.log("=== KẾT THÚC KHỞI TẠO ===");
+});
+
+// === XỬ LÝ ĐĂNG NHẬP ===
+const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+const headerRight = document.querySelector(".header-right");
+
+if (loggedInUser && headerRight) {
+  headerRight.innerHTML = `
+      <a href="#" style="color: yellow;">Xin chào, ${loggedInUser.name}</a>
+      <span>|</span>
+      <a href="#" id="logout-button">Đăng xuất</a>
+    `;
+
+  const logoutButton = document.getElementById("logout-button");
+  if (logoutButton) {
+    logoutButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      sessionStorage.removeItem("loggedInUser");
+      alert("Đã đăng xuất.");
+      window.location.href = "../menu.html";
+    });
+  }
+}
+
+// === CẢNH BÁO KHI RỜI TRANG ===
+window.addEventListener("beforeunload", (e) => {
+  if (bookingData.seats.length > 0 || bookingData.movie) {
+    e.preventDefault();
+    e.returnValue = "";
   }
 });
