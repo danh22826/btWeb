@@ -297,7 +297,7 @@ header * {
 
 .box .box-img {
   width: 100%;
-  /* KHẮC PHỤC LỖI KÍCH THƯỚC: Ép ảnh theo tỷ lệ 2:3 chuẩn */
+  /* Ép ảnh theo tỷ lệ 2:3 chuẩn */
   aspect-ratio: 2 / 3;
   height: auto;
   overflow: hidden;
@@ -393,7 +393,7 @@ header * {
     justify-content: space-between;
     gap: 10px;
     padding: 5px 10px;
-    flex-wrap: wrap; /* Quan trọng để menu-bar có thể xuống dòng */
+    flex-wrap: wrap;
   }
 
   /* 3. Điều chỉnh Logo & Tên Rạp */
@@ -416,7 +416,7 @@ header * {
 
   .menu {
     gap: 10px;
-    flex-wrap: nowrap; /* NGĂN menu xuống dòng */
+    flex-wrap: nowrap;
     padding-bottom: 5px;
   }
 
@@ -424,7 +424,7 @@ header * {
     font-size: 14px;
     padding: 6px 8px;
     min-width: 60px;
-    flex-shrink: 0; /* Ngăn các mục menu bị co lại */
+    flex-shrink: 0;
   }
 
   /* 5. Điều chỉnh Movie Container */

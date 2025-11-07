@@ -14,7 +14,6 @@ body {
   background: #1a1a1a;
   color: white;
   overflow-x: hidden;
-  /* Đã chỉnh lại padding-top cho phù hợp với Header mới */
   padding-top: 120px;
   min-height: 100vh;
 }
@@ -23,7 +22,6 @@ a {
   text-decoration: none;
 }
 
-/* === HEADER (Đã cập nhật theo yêu cầu) === */
 header {
   position: fixed;
   top: 0;
@@ -40,7 +38,6 @@ header * {
 }
 
 .top-bar {
-  /* Khắc phục lỗi: cần đặt header-right và header-left vào trong top-bar */
   width: 100%;
 }
 
@@ -61,10 +58,8 @@ header * {
 .header-left {
   display: flex;
   align-items: center;
-  /* Giảm gap giữa logo và tên rạp */
   gap: 15px;
   padding: 10px 20px;
-  /* Quan trọng: Ngăn logo và menu xuống dòng */
   flex-wrap: nowrap;
   font-size: 20px;
 }
@@ -80,13 +75,11 @@ header * {
   line-height: 1;
 }
 
-/* === MENU (Đã cập nhật theo yêu cầu) === */
 .menu-bar {
   margin-left: auto;
 }
 
 .menu a {
-  /* HIỂN THỊ ICON VÀ CHỮ DỌC */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,7 +94,6 @@ header * {
 .menu a:hover {
   color: yellow;
 }
-/* KẾT THÚC PHẦN HEADER/MENU ĐÃ CẬP NHẬT */
 
 /* === PAGE HEADER === */
 .page-header {
@@ -358,7 +350,7 @@ header * {
   margin-top: 60px;
 }
 
-/* === RESPONSIVE (Đã cập nhật theo yêu cầu) === */
+/* === RESPONSIVE  === */
 
 /* Nhỏ hơn 599px (Mobile) */
 @media (max-width: 599px) {
@@ -379,7 +371,7 @@ header * {
     justify-content: space-between;
     gap: 10px;
     padding: 5px 10px;
-    flex-wrap: wrap; /* Quan trọng để menu-bar có thể xuống dòng */
+    flex-wrap: wrap;
   }
 
   /* 3. Điều chỉnh Logo & Tên Rạp */
@@ -402,7 +394,7 @@ header * {
 
   .menu {
     gap: 10px;
-    flex-wrap: nowrap; /* NGĂN menu xuống dòng */
+    flex-wrap: nowrap;
     padding-bottom: 5px;
   }
 
@@ -410,12 +402,11 @@ header * {
     font-size: 14px;
     padding: 6px 8px;
     min-width: 60px;
-    flex-shrink: 0; /* Ngăn các mục menu bị co lại */
+    flex-shrink: 0;
   }
 
   /* 5. Điều chỉnh Promotions Container */
   .promo-grid {
-    /* Tùy chỉnh hiển thị danh sách khuyến mãi trên mobile */
     grid-template-columns: 1fr;
   }
 
@@ -428,7 +419,6 @@ header * {
   }
 
   body {
-    /* Tăng padding top trên mobile nếu header quá lớn */
     padding-top: 150px;
   }
 }

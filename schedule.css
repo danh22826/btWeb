@@ -1,17 +1,16 @@
-/* schedule.css - Phần riêng cho lịch chiếu, KHÔNG đụng tới header/menu */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
 body {
   background: linear-gradient(180deg, #0b0b0c, #4c4c4c);
   color: #fff;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   padding-top: 200px; /* giống menu.css */
 }
 
 /* === CONTAINER & CARD === */
 main.container {
   width: 100%;
-  max-width: none; /* bỏ giới hạn ngang */
+  max-width: none;
   margin: 0;
   padding: 0;
 }
@@ -189,19 +188,17 @@ main.container {
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 6px;
-  color: #fefefe; /* 🔴 Màu đỏ thương hiệu UTC Cinema */
+  color: #fefefe;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .sub {
-  color: #ccc; /* xám nhẹ, dễ đọc trên nền tối */
+  color: #ccc;
   font-size: 0.95rem;
   font-weight: 400;
 }
 .sub span {
-  color: #ffffff; /* màu vàng nổi bật cho ngày hệ thống */
+  color: #ffffff;
   font-weight: 600;
 }
-
-

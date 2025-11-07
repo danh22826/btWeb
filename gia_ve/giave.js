@@ -1,7 +1,3 @@
-// ========================
-// GIAVE.JS - XỬ LÝ ĐẶT VÉ (FIXED VERSION)
-// ========================
-
 document.addEventListener("DOMContentLoaded", function () {
   console.log("=== BẮT ĐẦU DEBUG ===");
 
@@ -58,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log("Lịch chiếu:", movieSchedule);
 
-  // === CÁC PHẦN TỬ DOM ===
   const steps = document.querySelectorAll(".step");
   const stepContents = document.querySelectorAll(".step-content");
   const movieOptions = document.querySelectorAll(".movie-option");
